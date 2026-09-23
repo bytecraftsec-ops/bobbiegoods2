@@ -17,6 +17,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Carousel } from "@/components/Carousel";
+import ChatPrint, { type Conversation } from "@/components/ChatPrint";
 import hero from "@/assets/hero.jpg";
 import book1 from "@/assets/book-1.jpg";
 import book2 from "@/assets/book-2.jpg";
