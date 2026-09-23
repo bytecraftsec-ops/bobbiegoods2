@@ -48,7 +48,7 @@ export default function ChatPrint({ conv }: { conv: Conversation }) {
         {conv.mensagens.map((m, i) =>
           m.from === "cliente" ? (
             <div key={i} className="flex items-end gap-1.5">
-              {(i === 0 || conv.mensagens[i - 1].from !== "cliente") && (
+              {(i === 0 || conv.mensagens[i - 1]?.from !== "cliente") && (
                 <Avatar nome={conv.nome} color={conv.avatarColor} />
               )}
               <div className="max-w-[78%] rounded-2xl rounded-bl-md bg-[#26262b] px-3.5 py-2 text-[13px] leading-snug text-white">
