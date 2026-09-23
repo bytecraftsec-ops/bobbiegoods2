@@ -1,19 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   BookOpen,
   Check,
   ChevronDown,
   Crown,
   Download,
-  FileText,
   Gift,
   Heart,
   Printer,
   ShieldCheck,
   Sparkles,
   Star,
-  X,
   Zap,
 } from "lucide-react";
 import hero from "@/assets/hero.jpg";
@@ -67,35 +64,18 @@ function CTA({
   );
 }
 
-function FAQItem({
-  question,
-  answer,
-  open,
-  onClick,
-}: {
-  question: string;
-  answer: string;
-  open: boolean;
-  onClick: () => void;
-}) {
+function FAQItem({ question, answer, defaultOpen = false }: { question: string; answer: string; defaultOpen?: boolean }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card">
-      <button
-        type="button"
-        onClick={onClick}
-        className="flex w-full items-center justify-between gap-4 p-5 text-left font-extrabold"
-      >
-        {question}
-        <ChevronDown className={`size-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
-      </button>
-      {open && <p className="px-5 pb-5 text-[15px] leading-7 text-muted-foreground">{answer}</p>}
-    </div>
+    <details open={defaultOpen} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-left font-extrabold [&::-webkit-details-marker]:hidden">
+        <span>{question}</span>
+        <ChevronDown className="size-5 shrink-0 transition-transform group-open:rotate-180" />
+      </summary>
+      <div className="border-t border-border px-5 pb-5 pt-4 text-[15px] leading-7 text-muted-foreground">{answer}</div>
+    </details>
   );
 }
-
 function Index() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
-
   const faqs = [
     [
       "O que eu recebo?",
@@ -143,9 +123,9 @@ function Index() {
             </span>
 
             <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Menos tela.
+              Uma atividade que a criança
               <br />
-              <span className="text-gold">Mais momentos para criar juntos.</span>
+              <span className="text-gold">vai querer fazer de novo.</span>
             </h1>
 
             <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-brand-foreground/90 lg:mx-0">
@@ -176,7 +156,7 @@ function Index() {
                 <span aria-hidden>↓</span>
               </CTA>
               <p className="mt-3 text-xs text-brand-foreground/75">
-                Veja páginas do material abaixo antes de decidir.
+                Você pode ver exemplos reais do material antes de comprar.
               </p>
             </div>
           </div>
@@ -220,31 +200,26 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
             {[
               [book1, "Colorindo Versículos"],
               [book2, "Histórias do Novo Testamento"],
               [book3, "Noé e a Arca"],
-              [hero, "Jesus e as Crianças"],
             ].map(([img, title]) => (
-              <div
-                key={title as string}
-                className="overflow-hidden rounded-3xl border border-border bg-card shadow-soft"
-              >
-                <img
-                  src={img}
-                  alt={title as string}
-                  loading="lazy"
-                  width={912}
-                  height={912}
-                  className="aspect-square w-full object-cover"
-                />
-                <div className="flex items-center gap-2 p-4">
-                  <Check className="size-5 shrink-0 text-cta" />
-                  <span className="text-sm font-extrabold">{title as string}</span>
-                </div>
+              <div key={title as string} className="group overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition hover:-translate-y-1">
+                <img src={img} alt={title as string} loading="lazy" width={912} height={912} className="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.02]" />
+                <div className="flex items-center gap-2 p-4"><Check className="size-5 shrink-0 text-cta" /><span className="text-sm font-extrabold">{title as string}</span></div>
               </div>
             ))}
+          </div>
+          <div className="mx-auto mt-6 max-w-2xl rounded-2xl bg-secondary p-4 text-center text-sm font-bold text-muted-foreground">As imagens acima são algumas amostras reais do material. O pacote completo contém os arquivos digitais descritos na oferta.</div>        </div>
+      </section>
+
+      <section className="bg-[#fffaf3] px-4 py-14 sm:py-20">
+        <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-2xl text-center"><span className="text-sm font-extrabold uppercase tracking-wider text-brand">Tudo bem explicado</span><h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">O que acontece depois da compra?</h2><p className="mt-3 leading-7 text-muted-foreground">É um produto digital: você não precisa esperar uma entrega física para começar.</p></div>
+          <div className="mt-9 grid gap-4 sm:grid-cols-3">
+            {[[Download,"Você recebe os PDFs","Após a confirmação do pagamento, siga as instruções de acesso enviadas para você."],[Printer,"Escolha o que imprimir","Use apenas as páginas que quiser, em casa ou em uma gráfica."],[Heart,"Crie seu momento","Separe alguns minutos para colorir, conversar e acompanhar a criança."]].map(([Icon,title,text])=>(<div key={title as string} className="rounded-3xl border border-border bg-white p-6 shadow-soft"><div className="flex size-12 items-center justify-center rounded-2xl bg-brand/10"><Icon className="size-6 text-brand"/></div><h3 className="mt-4 font-extrabold">{title as string}</h3><p className="mt-2 text-sm leading-7 text-muted-foreground">{text as string}</p></div>))}
           </div>
         </div>
       </section>
@@ -340,6 +315,8 @@ function Index() {
               Os dois pacotes são digitais e dão acesso ao material descrito abaixo.
             </p>
           </div>
+
+          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-card px-5 py-4 text-center text-xs font-bold text-muted-foreground shadow-soft"><span className="inline-flex items-center gap-2"><ShieldCheck className="size-4 text-cta"/> Checkout protegido</span><span className="inline-flex items-center gap-2"><Zap className="size-4 text-cta"/> Pagamento único</span><span className="inline-flex items-center gap-2"><Download className="size-4 text-cta"/> Produto digital</span><span className="inline-flex items-center gap-2"><Heart className="size-4 text-cta"/> 7 dias de garantia</span></div>
 
           <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
             <div className="rounded-3xl border border-border bg-card p-7 shadow-soft">
@@ -452,17 +429,8 @@ function Index() {
           </div>
 
           <div className="mt-8 space-y-3">
-            {faqs.map(([question, answer], i) => (
-              <FAQItem
-                key={question}
-                question={question}
-                answer={answer}
-                open={openFaq === i}
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
-              />
-            ))}
-          </div>
-        </div>
+            {faqs.map(([question, answer], i) => <FAQItem key={question} question={question} answer={answer} defaultOpen={i === 0} />)}
+          </div>        </div>
       </section>
 
       {/* FECHAMENTO */}
