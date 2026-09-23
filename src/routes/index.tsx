@@ -79,36 +79,65 @@ const livros = [
   { img: hero, title: "Jesus e as Crianças" },
 ];
 
-const depoimentos = [
+const depoimentos: Conversation[] = [
   {
     nome: "Ana Paula",
-    papel: "Professora de escola dominical",
-    texto:
-      "As crianças ficaram encantadas! Imprimi para a turma inteira e a aula rendeu muito mais. Melhor R$ 10 que já investi.",
+    handle: "anapaula.santos",
+    avatarColor: "#e1306c",
+    mensagens: [
+      { from: "loja", text: "Oii Ana, tudo bem? Confirma se chegou o acesso dos livrinhos 😊" },
+      { from: "cliente", text: "Chegou simm! Acabei de baixar tudo" },
+      { from: "cliente", text: "As crianças da escola dominical AMARAM, imprimi pra turma inteira" },
+      { from: "cliente", text: "Melhores R$ 10 que já investi 🥰", heart: true },
+      { from: "loja", text: "Que alegria! Deus abençoe seu ministério 🙏" },
+    ],
   },
   {
     nome: "Juliana Ferreira",
-    papel: "Mãe de 2 filhos",
-    texto:
-      "Meu filho trocou o celular pelo lápis de cor. Fazemos o devocional colorindo juntos toda noite.",
+    handle: "ju_ferreira",
+    avatarColor: "#8a3ab9",
+    mensagens: [
+      { from: "cliente", text: "Oii! Fiz o pagamento agora, em quanto tempo recebo?" },
+      { from: "loja", text: "Oii Ju! Chega no seu e-mail em até 2 minutinhos 😊 Qualquer coisa confere a caixa de spam!" },
+      { from: "cliente", text: "Recebiii, obrigada <3", heart: true },
+      { from: "cliente", text: "Gente, meu filho largou o celular pra colorir 😱 agora fazemos o devocional juntos toda noite" },
+      { from: "loja", text: "Aaaah que lindo!! Deus abençoe sua família 🥰🙏" },
+    ],
   },
   {
     nome: "Marcos Silva",
-    papel: "Líder de célula",
-    texto:
-      "Recebi o acesso em segundos. Uso nas reuniões e os pais sempre pedem para levar as folhas para casa.",
+    handle: "marcosilva_ofc",
+    avatarColor: "#0f9d58",
+    mensagens: [
+      { from: "cliente", text: "Bom dia! Pode enviar por aqui mesmo?" },
+      { from: "loja", text: "Bom dia Marcos! Acabei de te enviar o link com todos os PDFs 🙏" },
+      { from: "cliente", text: "Recebi! Material top, uso nas reuniões de célula" },
+      { from: "cliente", text: "Os pais sempre pedem pra levar as folhas pra casa 😂", heart: true },
+      { from: "loja", text: "Hahaha que bênção! Qualquer coisa é só chamar 😊" },
+    ],
   },
   {
     nome: "Débora Lima",
-    papel: "Mãe e catequista",
-    texto:
-      "Os desenhos são lindos e fáceis de colorir. Vale cada centavo, peguei o premium pelos bônus.",
+    handle: "debora.lima",
+    avatarColor: "#f56040",
+    mensagens: [
+      { from: "cliente", text: "Amiga, os desenhos são LINDOS" },
+      { from: "cliente", text: "Peguei o premium pelos bônus e não me arrependo 😍" },
+      { from: "loja", text: "Fico muito feliz Débora! Se puder me marcar quando postar eu agradeço 🥰" },
+      { from: "cliente", text: "Vou sim! Mais tarde posto", heart: true },
+    ],
   },
   {
     nome: "Camila Rocha",
-    papel: "Professora infantil",
-    texto:
-      "Material de qualidade profissional. Imprimo quantas vezes quiser, isso mudou o meu planejamento.",
+    handle: "camilarocha",
+    avatarColor: "#405de6",
+    mensagens: [
+      { from: "loja", text: "Oii Camila! Conseguiu baixar os arquivos direitinho?" },
+      { from: "cliente", text: "Consegui sim! Qualidade profissional mesmo" },
+      { from: "cliente", text: "Sou professora e agora imprimo quantas vezes quiser, mudou meu planejamento 🙌" },
+      { from: "cliente", text: "Muito obrigada ❤️❤️❤️", heart: true },
+      { from: "loja", text: "Eu que agradeço, Deus abençoe sua vida! 🥰🙏" },
+    ],
   },
 ];
 
@@ -333,26 +362,9 @@ function Index() {
           <div className="mt-10">
             <Carousel label="Depoimentos de clientes">
               {depoimentos.map((d) => (
-                <blockquote
-                  key={d.nome}
-                  className="flex h-full flex-col rounded-3xl border border-border bg-card p-6 shadow-soft"
-                >
-                  <div className="flex gap-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="size-4 fill-gold text-gold" />
-                    ))}
-                  </div>
-                  <p className="mt-4 grow text-[15px] leading-relaxed">“{d.texto}”</p>
-                  <footer className="mt-5 flex items-center gap-3">
-                    <span className="flex size-10 items-center justify-center rounded-full bg-gradient-brand font-extrabold text-brand-foreground">
-                      {d.nome.charAt(0)}
-                    </span>
-                    <span>
-                      <span className="block font-bold leading-tight">{d.nome}</span>
-                      <span className="block text-xs text-muted-foreground">{d.papel}</span>
-                    </span>
-                  </footer>
-                </blockquote>
+                <div key={d.nome} className="h-full w-[280px] sm:w-[300px]">
+                  <ChatPrint conv={d} />
+                </div>
               ))}
             </Carousel>
           </div>
