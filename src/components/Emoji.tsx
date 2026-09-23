@@ -27,7 +27,7 @@ export function Emoji({
   className = "",
 }: {
   char: string;
-  className?: string;
+  className?: string | undefined;
 }) {
   const code = toCodepoint(char);
   return (
@@ -45,7 +45,7 @@ export function Emojify({
   className,
 }: {
   text: string;
-  className?: string;
+  className?: string | undefined;
 }) {
   const parts: ReactNode[] = [];
   let last = 0;
