@@ -393,6 +393,7 @@ function Index() {
             </Carousel>
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* Ofertas */}
