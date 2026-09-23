@@ -443,8 +443,10 @@ function Index() {
                 <CTA href={CHECKOUT_BASICO}>Quero o pacote básico</CTA>
               </div>
             </div>
+            </Reveal>
 
             {/* Premium */}
+            <Reveal delay={120}>
             <div className="animate-wiggle relative rounded-3xl border-2 border-gold bg-card p-7 pt-10 shadow-card ring-4 ring-gold/25">
               <span className="absolute -top-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-extrabold uppercase text-gold-foreground shadow-soft">
                 <Crown className="size-4" /> Mais vendido
