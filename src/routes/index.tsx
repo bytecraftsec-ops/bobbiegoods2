@@ -100,7 +100,7 @@ const depoimentos: Conversation[] = [
     mensagens: [
       { from: "cliente", text: "Oii! Fiz o pagamento agora, em quanto tempo recebo?" },
       { from: "loja", text: "Oii Ju! Chega no seu e-mail em até 2 minutinhos 😊 Qualquer coisa confere a caixa de spam!" },
-      { from: "cliente", text: "Recebiii, obrigada <3", heart: true },
+      { from: "cliente", text: "Recebiii, obrigada ❤️", heart: true },
       { from: "cliente", text: "Gente, meu filho largou o celular pra colorir 😱 agora fazemos o devocional juntos toda noite" },
       { from: "loja", text: "Aaaah que lindo!! Deus abençoe sua família 🥰🙏" },
     ],

@@ -1,4 +1,5 @@
 import { Camera, Mic, Plus, Smile } from "lucide-react";
+import { Emoji, Emojify } from "@/components/Emoji";
 
 type Bubble = {
   from: "cliente" | "loja";
@@ -52,14 +53,18 @@ export default function ChatPrint({ conv }: { conv: Conversation }) {
                 <Avatar nome={conv.nome} color={conv.avatarColor} />
               )}
               <div className="max-w-[78%] rounded-2xl rounded-bl-md bg-[#26262b] px-3.5 py-2 text-[13px] leading-snug text-white">
-                {m.text}
-                {m.heart && <span className="ml-1">❤️</span>}
+                <Emojify text={m.text} />
+                {m.heart && (
+                  <span className="ml-1">
+                    <Emoji char="❤️" className="h-[1.25em] w-[1.25em]" />
+                  </span>
+                )}
               </div>
             </div>
           ) : (
             <div key={i} className="flex justify-end">
               <div className="max-w-[78%] rounded-2xl rounded-br-md bg-gradient-to-br from-[#7b3ff2] to-[#5b2fd6] px-3.5 py-2 text-[13px] leading-snug text-white">
-                {m.text}
+                <Emojify text={m.text} />
               </div>
             </div>
           ),
