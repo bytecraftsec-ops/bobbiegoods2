@@ -196,3 +196,60 @@
     display: none;
   }
 }
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@utility animate-float {
+  animation: float-soft 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.58 0.14 160 / 0.55), var(--shadow-card); }
+  50% { box-shadow: 0 0 0 10px oklch(0.58 0.14 160 / 0), var(--shadow-card); }
+}
+@utility animate-pulse-glow {
+  animation: pulse-glow 1.8s ease-in-out infinite;
+}
+
+@keyframes shine-sweep {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  60%, 100% { transform: translateX(220%) skewX(-18deg); }
+}
+@utility shine-overlay {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 45%;
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.55), transparent);
+    animation: shine-sweep 2.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes wiggle-soft {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-1.5deg) scale(1.015); }
+  75% { transform: rotate(1.5deg) scale(1.015); }
+}
+@utility animate-wiggle {
+  animation: wiggle-soft 3.5s ease-in-out infinite;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility animate-ticker {
+  animation: ticker-scroll 22s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float, .animate-pulse-glow, .animate-wiggle, .animate-ticker {
+    animation: none;
+  }
+}
