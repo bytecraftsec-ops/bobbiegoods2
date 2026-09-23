@@ -369,6 +369,7 @@ function Index() {
 
       {/* Depoimentos */}
       <section className="px-4 py-14 sm:py-20">
+        <Reveal>
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-extrabold sm:text-4xl">
             O que nossos clientes dizem
@@ -491,6 +492,7 @@ function Index() {
                 <CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium</CTA>
               </div>
             </div>
+            </Reveal>
           </div>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
