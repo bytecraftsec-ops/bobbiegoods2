@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { Carousel } from "@/components/Carousel";
 import ChatPrint, { type Conversation } from "@/components/ChatPrint";
+import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/hero.jpg";
 import book1 from "@/assets/book-1.jpg";
 import book2 from "@/assets/book-2.jpg";
@@ -177,7 +178,7 @@ function CTA({
   return (
     <a
       href={href}
-      className={`inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-cta px-6 py-4 text-center text-base font-extrabold uppercase tracking-wide text-cta-foreground shadow-card transition-transform hover:scale-[1.02] active:scale-[0.99] sm:text-lg ${className}`}
+      className={`shine-overlay animate-pulse-glow inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-cta px-6 py-4 text-center text-base font-extrabold uppercase tracking-wide text-cta-foreground transition-transform hover:scale-[1.03] active:scale-[0.99] sm:text-lg ${className}`}
     >
       {children}
     </a>
@@ -269,11 +270,33 @@ function Index() {
               alt="Ilustração cristã infantil para colorir"
               width={912}
               height={912}
-              className="mx-auto w-64 rounded-3xl shadow-card sm:w-80 lg:w-full lg:max-w-md"
+              className="animate-float mx-auto w-64 rounded-3xl shadow-card sm:w-80 lg:w-full lg:max-w-md"
             />
           </div>
         </div>
       </header>
+
+      {/* Ticker de benefícios */}
+      <div className="overflow-hidden border-y border-border bg-gold/15 py-3">
+        <div className="animate-ticker flex w-max items-center gap-8 whitespace-nowrap text-sm font-extrabold uppercase tracking-wide text-foreground/80">
+          {[0, 1].map((n) => (
+            <div key={n} className="flex items-center gap-8" aria-hidden={n === 1}>
+              {[
+                "Acesso imediato",
+                "Impressão ilimitada",
+                "35 livros em PDF",
+                "Acesso vitalício",
+                "7 dias de garantia",
+                "Bônus mensais no premium",
+              ].map((t) => (
+                <span key={t} className="inline-flex items-center gap-2">
+                  <Star className="size-4 fill-gold text-gold" /> {t}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Benefícios */}
       <section className="px-4 py-14 sm:py-20">
@@ -286,19 +309,18 @@ function Index() {
           </p>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {beneficios.map(({ icon: Icon, title, text, color }) => (
-              <div
-                key={title}
-                className="rounded-3xl border border-border bg-card p-6 text-center shadow-soft"
-              >
-                <div
-                  className={`mx-auto flex size-14 items-center justify-center rounded-full ${color}`}
-                >
-                  <Icon className="size-7 text-brand-foreground" />
+            {beneficios.map(({ icon: Icon, title, text, color }, i) => (
+              <Reveal key={title} delay={i * 100}>
+                <div className="h-full rounded-3xl border border-border bg-card p-6 text-center shadow-soft transition-transform duration-300 hover:-translate-y-1.5 hover:shadow-card">
+                  <div
+                    className={`mx-auto flex size-14 items-center justify-center rounded-full ${color}`}
+                  >
+                    <Icon className="size-7 text-brand-foreground" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-extrabold">{title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{text}</p>
                 </div>
-                <h3 className="mt-4 text-lg font-extrabold">{title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{text}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -347,6 +369,7 @@ function Index() {
 
       {/* Depoimentos */}
       <section className="px-4 py-14 sm:py-20">
+        <Reveal>
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-extrabold sm:text-4xl">
             O que nossos clientes dizem
@@ -370,6 +393,7 @@ function Index() {
             </Carousel>
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* Ofertas */}
@@ -389,6 +413,7 @@ function Index() {
 
           <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
             {/* Básico */}
+            <Reveal>
             <div className="rounded-3xl border border-border bg-card p-7 shadow-soft">
               <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold">
                 <Star className="size-6 fill-gold text-gold" /> Pacote Básico
@@ -420,10 +445,12 @@ function Index() {
                 <CTA href={CHECKOUT_BASICO}>Quero o pacote básico</CTA>
               </div>
             </div>
+            </Reveal>
 
             {/* Premium */}
-            <div className="relative rounded-3xl border-2 border-gold bg-card p-7 pt-10 shadow-card">
-              <span className="absolute -top-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-extrabold uppercase text-gold-foreground">
+            <Reveal delay={120}>
+            <div className="animate-wiggle relative rounded-3xl border-2 border-gold bg-card p-7 pt-10 shadow-card ring-4 ring-gold/25">
+              <span className="absolute -top-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-extrabold uppercase text-gold-foreground shadow-soft">
                 <Crown className="size-4" /> Mais vendido
               </span>
               <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold">
@@ -466,6 +493,7 @@ function Index() {
                 <CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium</CTA>
               </div>
             </div>
+            </Reveal>
           </div>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
