@@ -460,11 +460,11 @@ function Index() {
                 R$ 256,00
               </p>
               <p className="mx-auto mt-1 w-fit rounded-full bg-cta px-3 py-1 text-xs font-bold text-cta-foreground">
-                -93%
+                -92%
               </p>
-              <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 17,00</p>
+              <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 19,90</p>
               <p className="mt-2 text-center text-sm text-muted-foreground">
-                Você economiza R$ 239,00
+                Você economiza R$ 236,10
               </p>
 
               <p className="mt-6 rounded-2xl bg-cta/10 py-3 text-center font-extrabold text-cta-dark">
@@ -555,7 +555,7 @@ function Index() {
             lanche, você leva 35 livros para sempre.
           </p>
           <div className="mx-auto mt-8 max-w-sm space-y-3">
-            <CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium — R$ 17</CTA>
+            <CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium — R$ 19,90</CTA>
             <a
               href={CHECKOUT_BASICO}
               className="block rounded-full border-2 border-white/40 px-6 py-3.5 text-sm font-extrabold uppercase tracking-wide"
