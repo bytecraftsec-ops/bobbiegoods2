@@ -1,22 +1,26 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
 /**
- * Renderiza emojis como imagens no estilo iOS, de forma que apareçam idênticos
- * em qualquer dispositivo (celular, tablet ou computador), sem depender da
- * fonte de emoji do sistema (que no Android/Windows tem visual diferente).
- * Usa o conjunto Twemoji servido via CDN.
+ * Renderiza emojis como imagens no estilo iOS (Apple), de forma que apareçam
+ * idênticos em qualquer dispositivo (celular, tablet ou computador), sem
+ * depender da fonte de emoji do sistema — que no Android/Windows tem um
+ * visual diferente do iPhone.
+ *
+ * Usa as imagens Apple do conjunto emoji-data, servidas via CDN.
  */
-const TWEMOJI_BASE =
-  "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg";
+const APPLE_BASE =
+  "https://cdn.jsdelivr.net/gh/iamcal/emoji-data@master/img-apple-160";
 
 const EMOJI_REGEX =
   /\p{Extended_Pictographic}\uFE0F?(\u200D\p{Extended_Pictographic}\uFE0F?)*/gu;
 
-function toCodepoint(input: string): string {
+function codepoints(input: string, keepFe0f: boolean): string {
   return Array.from(input)
     .filter((c) => {
-      const cp = c.codePointAt(0);
-      return cp !== 0xfe0f && cp !== 0x200d;
+      const cp = c.codePointAt(0)!;
+      if (cp === 0x200d) return false; // zero-width joiner (separador de sequência)
+      if (!keepFe0f && cp === 0xfe0f) return false; // seletor de variação
+      return true;
     })
     .map((c) => c.codePointAt(0)!.toString(16))
     .join("-");
@@ -29,13 +33,28 @@ export function Emoji({
   char: string;
   className?: string | undefined;
 }) {
-  const code = toCodepoint(char);
+  const primary = codepoints(char, true);
+  const secondary = codepoints(char, false);
+  const [failed, setFailed] = useState(false);
+  const [src, setSrc] = useState(`${APPLE_BASE}/${primary}.png`);
+
+  if (failed) {
+    return <span className={className}>{char}</span>;
+  }
+
   return (
     <img
-      src={`${TWEMOJI_BASE}/${code}.svg`}
+      src={src}
       alt={char}
       draggable={false}
       className={`inline-block h-[1.15em] w-[1.15em] select-none align-[-0.2em] ${className}`}
+      onError={() => {
+        if (src === `${APPLE_BASE}/${primary}.png`) {
+          setSrc(`${APPLE_BASE}/${secondary}.png`);
+        } else {
+          setFailed(true);
+        }
+      }}
     />
   );
 }
