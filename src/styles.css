@@ -4,20 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
-
 @theme inline {
   --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Baloo 2", "Nunito", ui-sans-serif, system-ui, sans-serif;
@@ -115,7 +101,7 @@
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.984 0.003 247.858);
   --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary: oklch(0.208 0.042 264.695);
   --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
   --sidebar-accent: oklch(0.968 0.007 247.896);
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
@@ -252,4 +238,9 @@
   .animate-float, .animate-pulse-glow, .animate-wiggle, .animate-ticker {
     animation: none;
   }
+}
+
+/* Hide Lovable's "Edit with Lovable" badge across the entire site. */
+#lovable-badge {
+  display: none !important;
 }
