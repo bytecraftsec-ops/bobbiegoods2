@@ -411,6 +411,7 @@ function Index() {
 
           <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
             {/* Básico */}
+            <Reveal>
             <div className="rounded-3xl border border-border bg-card p-7 shadow-soft">
               <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold">
                 <Star className="size-6 fill-gold text-gold" /> Pacote Básico
