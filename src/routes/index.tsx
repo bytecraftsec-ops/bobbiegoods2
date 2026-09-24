@@ -381,7 +381,7 @@ function Index() {
               <p className="mx-auto mt-1 w-fit rounded-full bg-cta px-3 py-1 text-xs font-bold text-cta-foreground">
                 -93%
               </p>
-              <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 17,00</p>
+              <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 19,90</p>
               <p className="mt-2 text-center text-sm text-muted-foreground">
                 Você economiza R$ 239,00
               </p>
