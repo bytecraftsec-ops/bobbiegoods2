@@ -2,12 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   BookOpen,
   Check,
+  Clock,
   Crown,
+  GraduationCap,
   Gift,
   Heart,
+  Church,
   Printer,
   ShieldCheck,
   Star,
+  Sparkles,
+  Users,
   Zap,
   ChevronDown,
 } from "lucide-react";
