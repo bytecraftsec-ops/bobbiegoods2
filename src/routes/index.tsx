@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";\nimport { useState } from "react";
 import {
   BookOpen,
   Check,
@@ -81,16 +81,140 @@ const livros = [
 ];
 
 const depoimentos = [
-  { nome: "Carol", contexto: "Mãe", quote: "Meu filho tem 4 anos e tava super agitado hoje, coloquei ele pra fazer a atividade das vogais e ele ficou CALMO.", detalhe: "Foi a primeira vez em semanas que ele parou quieto pra fazer algo." },
-  { nome: "Ludyany", contexto: "Mãe", quote: "Nossa, que material maravilhoso! Minha filha amou as atividades de coordenação motora.", detalhe: "Feedback enviado depois de receber o acesso." },
-  { nome: "Mariana", contexto: "Mãe", quote: "Chegou tudo certinho no email. Baixei aqui e já imprimi 20 páginas pra testar.", detalhe: "Ela contou que a filha começou a atividade na hora." },
-  { nome: "Jéssica", contexto: "Mãe", quote: "Chegou! Já abri aqui, tá tudo certinho. Amei as histórias infantis, vou ler hoje pra ele dormir.", detalhe: "Feedback após receber o material." },
-  { nome: "Priscila", contexto: "Cliente", quote: "Ah, que alívio! Obrigada por resolver rápido. Sério, muito obrigada.", detalhe: "Ela também contou que indicaria para a irmã." },
-  { nome: "Juliana", contexto: "Mãe de gêmeos", quote: "Esse material tá sendo a salvação aqui em casa. Os dois ficam quietos fazendo as folhinhas juntos.", detalhe: "Ela disse que já indicou para o grupo de mães da escolinha." },
-  { nome: "Amanda", contexto: "Cliente", quote: "Acabei de receber os arquivos e GENTE... que material é esse? Muito melhor do que eu imaginava.", detalhe: "Ela contou que chegou desconfiada pelo anúncio e se surpreendeu com o material." },
-  { nome: "Beatriz", contexto: "Professora", quote: "O material é EXCELENTE. As atividades são bem pensadas, sequência didática impecável.", detalhe: "Ela disse que recomendaria para outras professoras da escola." },
-  { nome: "Tatiane", contexto: "Mãe", quote: "Gente, ele FEZ 8 páginas seguidas hoje. 8 páginas!! Nunca vi ele concentrado assim.", detalhe: "Ela contou que é mãe solo de um menino de 6 anos." },
-  { nome: "Larissa", contexto: "Avó", quote: "Agora a gente faz as atividades juntos, ele adora. Melhor compra que fiz esse ano.", detalhe: "Ela comprou o material para fazer atividades com o netinho de 4 anos." },
+  {
+    nome: "Carol",
+    contexto: "Mãe",
+    mensagens: [
+      "Oi! Vi o vídeo que você me mandou",
+      "Chorei vendo, sério 🥺",
+      "Meu filho tem 4 anos e tava super agitado hoje, coloquei ele pra fazer a atividade das vogais e ele ficou CALMO",
+      "Foi a primeira vez em semanas que ele parou quieto pra fazer algo",
+      "Você não tem noção",
+      "Já indiquei pra 3 amigas minhas",
+      "Obrigada de coração ❤️",
+    ],
+  },
+  {
+    nome: "Ludyany",
+    contexto: "Mãe",
+    mensagens: [
+      "Olá, boa tarde!",
+      "Fiz o pagamento agora pelo pix, segue o comprovante",
+      "Aguardo o link 🙏",
+      "Recebi, obrigada!",
+      "Nossa, que material maravilhoso 😍",
+      "Minha filha amou as atividades de coordenação motora",
+      "Muito obrigada mesmo, Deus te abençoe 🙏❤️",
+    ],
+  },
+  {
+    nome: "Mariana",
+    contexto: "Mãe",
+    mensagens: [
+      "Bom dia!",
+      "Gente, chegou tudo certinho no email",
+      "Baixei aqui e já imprimi 20 páginas pra testar",
+      "Minha filha de 5 anos tá fazendo agora do lado, nem acredito que ela tá quieta kkkk",
+      "Tenho certeza",
+      "O material é lindo demais, parabéns pelo capricho 👏✨",
+      "Vou mandar foto dela fazendo depois",
+    ],
+  },
+  {
+    nome: "Jéssica",
+    contexto: "Mãe",
+    mensagens: [
+      "Oi, tudo bem?",
+      "Comprei ontem à noite e recebi agora de manhã",
+      "Você manda o link por aqui mesmo né?",
+      "Chegou!",
+      "Já abri aqui, tá tudo certinho",
+      "Amei as histórias infantis, vou ler hoje pra ele dormir 📖❤️",
+      "Obrigada!",
+    ],
+  },
+  {
+    nome: "Priscila",
+    contexto: "Cliente",
+    mensagens: [
+      "Oi, boa tarde!",
+      "Comprei o pacote completo pelo site",
+      "Só queria confirmar se o pagamento passou, porque não recebi email ainda",
+      "Ah, que alívio 😅",
+      "Obrigada por resolver rápido",
+      "Sério, muito obrigada",
+      "Já vou indicar pra minha irmã que tem gêmeos 👋",
+    ],
+  },
+  {
+    nome: "Juliana",
+    contexto: "Mãe de gêmeos",
+    mensagens: [
+      "Oi! Comprei o pacote completo",
+      "Tenho gêmeos de 4 anos e um só faz bagunça enquanto o outro quer atividade",
+      "Esse material tá sendo a salvação aqui em casa 😭",
+      "Os dois ficam quietos fazendo as folhinhas juntos",
+      "Vou mandar sim!",
+      "Já indiquei pro grupo de mães da escolinha",
+      "Obrigada de verdade ❤️",
+    ],
+  },
+  {
+    nome: "Amanda",
+    contexto: "Cliente",
+    mensagens: [
+      "Oi, boa noite",
+      "Vi o anúncio de vocês e confesso que fiquei desconfiada",
+      "Mas resolvi arriscar porque o preço tá bom demais",
+      "Acabei de receber os arquivos e GENTE",
+      "Que material é esse? Muito melhor do que eu imaginava 😱",
+      "Com certeza!",
+      "Já tô até pensando em comprar outros materiais seus",
+      "Obrigada ❤️",
+    ],
+  },
+  {
+    nome: "Beatriz",
+    contexto: "Professora",
+    mensagens: [
+      "Oi! Sou professora de educação infantil",
+      "Comprei o pacote pra usar com minha turminha",
+      "Só queria dizer que o material é EXCELENTE",
+      "As atividades são bem pensadas, sequência didática impecável 👏",
+      "Já vou recomendar pras outras professoras da escola",
+      "Vai servir muito!",
+      "Obrigada por fazer um material de qualidade acessível",
+      "Continue assim ❤️",
+    ],
+  },
+  {
+    nome: "Tatiane",
+    contexto: "Mãe",
+    mensagens: [
+      "Oi, tudo bem?",
+      "Sou mãe solo de um menino de 6 anos com tdah",
+      "Comprei o material esperando que ajudasse",
+      "Gente, ele FEZ 8 páginas seguidas hoje",
+      "8 páginas!! Nunca vi ele concentrado assim 🥺",
+      "Você não tem ideia do que isso significa pra mim",
+      "Obrigada do fundo do coração ❤️",
+      "Vou ser cliente pra sempre",
+    ],
+  },
+  {
+    nome: "Larissa",
+    contexto: "Avó",
+    mensagens: [
+      "Boa tarde, meu bem",
+      "Comprei o material pro meu netinho de 4 anos",
+      "Ele passa os fins de semana comigo e eu não sabia mais o que fazer com ele",
+      "Agora a gente faz as atividades juntos, ele adora",
+      "Melhor compra que fiz esse ano 💙",
+      "Eu que agradeço",
+      "Deus te abençoe ❤️",
+      "Vou comprar mais quando ele crescer",
+    ],
+  },
 ];
 
 const faq = [
@@ -297,16 +421,26 @@ function Index() {
             <Carousel label="Relatos reais de clientes" itemClassName="w-[84%] sm:w-[46%] lg:w-[31%]" hideArrows>
               {depoimentos.map((d) => (
                 <article key={d.nome} className="group h-full rounded-[1.75rem] border border-border bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-card">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex size-11 items-center justify-center rounded-full bg-brand/10 text-sm font-extrabold text-brand">{d.nome.charAt(0)}</div>
-                      <div><p className="font-extrabold">{d.nome}</p><p className="text-xs text-muted-foreground">{d.contexto}</p></div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex size-11 items-center justify-center rounded-full bg-brand/10 text-sm font-extrabold text-brand">{d.nome.charAt(0)}</div>
+                    <div>
+                      <p className="font-extrabold">{d.nome}</p>
+                      <p className="text-xs text-muted-foreground">{d.contexto}</p>
                     </div>
-                    <span className="rounded-full bg-cta/10 px-2.5 py-1 text-[11px] font-extrabold text-cta-dark">Feedback</span>
                   </div>
-                  <div className="mt-5 rounded-2xl bg-secondary p-4"><p className="text-[15px] font-bold leading-7 text-foreground">“{d.quote}”</p></div>
-                  <p className="mt-4 text-sm leading-6 text-muted-foreground">{d.detalhe}</p>
-                  <div className="mt-5 flex items-center gap-2 text-xs font-extrabold text-cta-dark"><ShieldCheck className="size-4" /> Relato enviado por cliente</div>
+                  <div className="mt-5 space-y-2">
+                    {d.mensagens.map((mensagem, index) => (
+                      <p
+                        key={index}
+                        className="rounded-2xl bg-secondary px-4 py-3 text-[15px] font-medium leading-6 text-foreground"
+                      >
+                        {mensagem}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="mt-5 flex items-center gap-2 text-xs font-extrabold text-cta-dark">
+                    <ShieldCheck className="size-4" /> Relato enviado por cliente
+                  </div>
                 </article>
               ))}
             </Carousel>
