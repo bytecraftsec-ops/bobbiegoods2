@@ -30,13 +30,13 @@ const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/8amwnbd";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "35 Livros de Colorir Cristãos — Só R$ 10" },
+      { title: "35 Livros de Colorir Cristãos — Só R$ 8,90" },
       {
         name: "description",
         content:
-          "35 livros de colorir cristãos em PDF para imprimir quantas vezes quiser. Ideais para célula, escola dominical e devocional em família. Acesso vitalício a partir de R$ 10.",
+          "35 livros de colorir cristãos em PDF para imprimir quantas vezes quiser. Ideais para célula, escola dominical e devocional em família. Acesso vitalício a partir de R$ 8,90.",
       },
-      { property: "og:title", content: "35 Livros de Colorir Cristãos — Só R$ 10" },
+      { property: "og:title", content: "35 Livros de Colorir Cristãos — Só R$ 8,90" },
       {
         property: "og:description",
         content:
@@ -474,11 +474,11 @@ function Index() {
               </h3>
               <p className="mt-4 text-center text-lg font-bold text-alert line-through">R$ 47,00</p>
               <p className="mx-auto mt-1 w-fit rounded-full bg-cta px-3 py-1 text-xs font-bold text-cta-foreground">
-                -79%
+                -81%
               </p>
-              <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 10,00</p>
+              <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 8,90</p>
               <p className="mt-2 text-center text-sm text-muted-foreground">
-                Você economiza R$ 37,00
+                Você economiza R$ 38,10
               </p>
 
               <ul className="mt-6 space-y-3">
@@ -613,7 +613,7 @@ function Index() {
               href={CHECKOUT_BASICO}
               className="block rounded-full border-2 border-white/40 px-6 py-3.5 text-sm font-extrabold uppercase tracking-wide"
             >
-              Prefiro o básico — R$ 10
+              Prefiro o básico — R$ 8,90
             </a>
           </div>
         </div>
