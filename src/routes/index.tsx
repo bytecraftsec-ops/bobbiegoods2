@@ -133,29 +133,48 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="border-b border-border bg-white px-4 py-2.5 text-center text-xs font-bold text-foreground sm:text-sm"><span className="inline-flex items-center justify-center gap-2"><ShieldCheck className="size-4 text-cta" /> Produto digital • Pagamento seguro • Acesso após a confirmação</span></div>
+      <div className="border-b border-border bg-white px-4 py-2.5 text-center text-xs font-bold text-foreground sm:text-sm">
+        <span className="inline-flex items-center justify-center gap-2">
+          <ShieldCheck className="size-4 text-cta" /> Produto digital • Pagamento seguro • Acesso imediato no e-mail
+        </span>
+      </div>
 
       <header className="relative overflow-hidden bg-gradient-brand px-4 pb-14 pt-10 text-brand-foreground sm:pb-20 sm:pt-14">
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
           <div className="order-2 text-center lg:order-1 lg:text-left">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-extrabold uppercase tracking-wide backdrop-blur sm:text-sm"><Sparkles className="size-4 text-gold" /> Kit digital infantil</span>
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl"><span className="text-gold">+ de 30 livrinhos cristãos</span><br />para imprimir e colorir.</h1>
-            <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-brand-foreground/90 lg:mx-0">Material digital pronto para mães que querem atividade simples, criativa e com valores cristãos para fazer com as crianças em casa.</p>
-            
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-extrabold uppercase tracking-wide backdrop-blur sm:text-sm">
+              <Sparkles className="size-4 text-gold" /> Kit digital infantil cristão
+            </span>
+
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
+              <span className="text-gold">+ de 30 livrinhos cristãos</span>
+              <br />
+              para imprimir e colorir
+            </h1>
+
+            <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-brand-foreground/90 lg:mx-0">
+              Material pronto para mães que querem uma atividade simples, criativa e com valores cristãos para fazer com as crianças em casa, na célula ou na escola dominical.
+            </p>
+
             <div className="mx-auto mt-5 flex max-w-md flex-wrap items-center justify-center gap-2 lg:mx-0 lg:justify-start">
               <span className="rounded-full bg-white/15 px-3 py-2 text-sm font-extrabold">PDF para imprimir</span>
               <span className="rounded-full bg-white/15 px-3 py-2 text-sm font-extrabold">Acesso imediato</span>
-              <span className="rounded-full bg-gold px-3 py-2 text-sm font-extrabold text-gold-foreground">A partir de R$ 8,90</span>
+              <span className="rounded-full bg-gold px-3 py-2 text-sm font-extrabold text-gold-foreground">
+                A partir de R$ 8,90
+              </span>
             </div>
 
             <ul className="mx-auto mt-6 max-w-md space-y-3 lg:mx-0">
               {[
-                { icon: Users, t: "Células" },
+                { icon: Users, t: "Células e grupos" },
                 { icon: Church, t: "Escola Dominical" },
-                { icon: Heart, t: "Devocional Familiar" },
-                { icon: GraduationCap, t: "Pedagogia" },
+                { icon: Heart, t: "Devocional em família" },
+                { icon: GraduationCap, t: "Uso pedagógico" },
               ].map(({ icon: Icon, t }) => (
-                <li key={t} className="flex items-center gap-3 rounded-2xl bg-white/12 px-4 py-3 text-left font-bold backdrop-blur">
+                <li
+                  key={t}
+                  className="flex items-center gap-3 rounded-2xl bg-white/12 px-4 py-3 text-left font-bold backdrop-blur"
+                >
                   <Icon className="size-5 text-gold" />
                   {t}
                 </li>
@@ -163,21 +182,30 @@ function Index() {
             </ul>
 
             <div className="mx-auto mt-7 max-w-md space-y-3 lg:mx-0">
-              <CTA href="#ofertas">Ver os pacotes a partir de R$ 8,90</CTA>
-              <a href={CHECKOUT_PREMIUM} className="block rounded-full border-2 border-white/50 bg-white/10 px-6 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide backdrop-blur transition hover:bg-white/20">
-                Quero o Premium — R$ 19,90
+              <CTA href="#ofertas">Quero ver os pacotes a partir de R$ 8,90</CTA>
+              <a
+                href={CHECKOUT_PREMIUM}
+                className="block rounded-full border-2 border-white/50 bg-white/10 px-6 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide backdrop-blur transition hover:bg-white/20"
+              >
+                Quero o Premium — R$ 17,90
               </a>
               <p className="flex items-center justify-center gap-2 text-xs text-brand-foreground/80 lg:justify-start">
                 <Zap className="size-4" /> Acesso imediato · <ShieldCheck className="size-4" /> 7 dias de garantia
               </p>
               <p className="text-center text-xs font-bold text-brand-foreground/70 lg:text-left">
-                ★ Mais de 200 mães já baixaram o material
+                ★ Centenas de mães e professoras já usam o material
               </p>
             </div>
           </div>
 
           <div className="order-1 lg:order-2">
-            <img src={hero} alt="Ilustração cristã infantil para colorir" width={912} height={912} className="animate-float mx-auto w-64 rounded-3xl shadow-card sm:w-80 lg:w-full lg:max-w-md" />
+            <img
+              src={hero}
+              alt="Ilustração cristã infantil para colorir"
+              width={912}
+              height={912}
+              className="animate-float mx-auto w-64 rounded-3xl shadow-card sm:w-80 lg:w-full lg:max-w-md"
+            />
           </div>
         </div>
       </header>
@@ -186,8 +214,17 @@ function Index() {
         <div className="animate-ticker flex w-max items-center gap-8 whitespace-nowrap text-sm font-extrabold uppercase tracking-wide text-foreground/80">
           {[0, 1].map((n) => (
             <div key={n} className="flex items-center gap-8" aria-hidden={n === 1}>
-              {["Acesso imediato", "Impressão ilimitada", "+ de 30 livros em PDF", "Acesso vitalício", "7 dias de garantia", "Bônus mensais no premium"].map((t) => (
-                <span key={t} className="inline-flex items-center gap-2"><Star className="size-4 fill-gold text-gold" /> {t}</span>
+              {[
+                "Acesso imediato",
+                "Impressão ilimitada",
+                "+ de 30 livros em PDF",
+                "Acesso vitalício",
+                "7 dias de garantia",
+                "Bônus mensais no premium",
+              ].map((t) => (
+                <span key={t} className="inline-flex items-center gap-2">
+                  <Star className="size-4 fill-gold text-gold" /> {t}
+                </span>
               ))}
             </div>
           ))}
@@ -197,13 +234,17 @@ function Index() {
       <section className="px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-extrabold sm:text-4xl">Perfeito para cada momento</h2>
-          <p className="mt-3 text-center text-muted-foreground">Um material, infinitas formas de ensinar a Palavra</p>
+          <p className="mt-3 text-center text-muted-foreground">
+            Um material, várias formas de ensinar a Palavra com as crianças
+          </p>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {beneficios.map(({ icon: Icon, title, text, color }, i) => (
               <Reveal key={title} delay={i * 100}>
                 <div className="h-full rounded-3xl border border-border bg-card p-6 text-center shadow-soft transition-transform duration-300 hover:-translate-y-1.5 hover:shadow-card">
-                  <div className={`mx-auto flex size-14 items-center justify-center rounded-full ${color}`}><Icon className="size-7 text-brand-foreground" /></div>
+                  <div className={`mx-auto flex size-14 items-center justify-center rounded-full ${color}`}>
+                    <Icon className="size-7 text-brand-foreground" />
+                  </div>
                   <h3 className="mt-4 text-lg font-extrabold">{title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{text}</p>
                 </div>
@@ -211,27 +252,40 @@ function Index() {
             ))}
           </div>
 
-          <div className="mx-auto mt-10 max-w-sm"><CTA href="#ofertas">Ver os pacotes</CTA></div>
+          <div className="mx-auto mt-10 max-w-sm">
+            <CTA href="#ofertas">Ver os pacotes</CTA>
+          </div>
         </div>
       </section>
 
       <section className="bg-secondary px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-extrabold sm:text-4xl">Veja exemplos do material</h2>
-          <p className="mt-3 text-center text-muted-foreground">Confira alguns dos temas disponíveis no kit antes de escolher seu pacote</p>
+          <p className="mt-3 text-center text-muted-foreground">
+            Confira alguns dos temas disponíveis no kit antes de escolher seu pacote
+          </p>
 
           <div className="mt-10">
             <Carousel label="Exemplos do material de colorir">
               {livros.map((l) => (
                 <figure key={l.title} className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
-                  <img src={l.img} alt={l.title} loading="lazy" width={912} height={912} className="aspect-square w-full object-cover" />
+                  <img
+                    src={l.img}
+                    alt={l.title}
+                    loading="lazy"
+                    width={912}
+                    height={912}
+                    className="aspect-square w-full object-cover"
+                  />
                   <figcaption className="p-4 text-center font-bold">{l.title}</figcaption>
                 </figure>
               ))}
             </Carousel>
           </div>
 
-          <div className="mx-auto mt-10 max-w-sm"><CTA href="#ofertas">Ver os pacotes</CTA></div>
+          <div className="mx-auto mt-10 max-w-sm">
+            <CTA href="#ofertas">Quero esse material</CTA>
+          </div>
         </div>
       </section>
 
@@ -240,61 +294,109 @@ function Index() {
         <div className="pointer-events-none absolute -right-20 bottom-10 size-56 rounded-full bg-brand/10 blur-3xl" />
         <Reveal className="relative mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-cta/10 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-cta-dark"><Star className="size-4 fill-gold text-gold" /> Relatos reais de mães</span>
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">Quem recebeu o material conta como foi</h2>
-            <p className="mt-3 leading-7 text-muted-foreground">Depoimentos reais enviados por clientes após receberem e utilizarem o material com as crianças.</p>
+            <span className="inline-flex items-center gap-2 rounded-full bg-cta/10 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-cta-dark">
+              <Star className="size-4 fill-gold text-gold" /> Relatos reais
+            </span>
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              O que as mães e professoras estão falando
+            </h2>
+            <p className="mt-3 leading-7 text-muted-foreground">
+              Prints reais de conversas de quem já recebeu e usou o material com as crianças.
+            </p>
           </div>
 
           <div className="mt-10">
             <Carousel label="Depoimentos reais de clientes" itemClassName="w-[96%] sm:w-[70%] lg:w-[52%]" hideArrows>
               {depoimentos.map((depoimento) => (
-                <figure key={depoimento.src} className="overflow-hidden rounded-[1.75rem] border border-border bg-white shadow-soft">
-                  <img src={depoimento.src} alt={depoimento.alt} loading="lazy" className="h-auto w-full object-contain" />
+                <figure
+                  key={depoimento.src}
+                  className="overflow-hidden rounded-[1.75rem] border border-border bg-white shadow-soft"
+                >
+                  <img
+                    src={depoimento.src}
+                    alt={depoimento.alt}
+                    loading="lazy"
+                    className="h-auto w-full object-contain"
+                  />
                 </figure>
               ))}
             </Carousel>
           </div>
 
-          <p className="mt-5 text-center text-xs font-bold text-muted-foreground">Arraste para o lado no celular para ver mais depoimentos.</p>
+          <p className="mt-5 text-center text-xs font-bold text-muted-foreground">
+            Arraste para o lado no celular para ver mais depoimentos.
+          </p>
         </Reveal>
       </section>
 
       <section id="ofertas" className="scroll-mt-16 bg-secondary px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto w-fit rounded-full bg-alert px-5 py-2 text-center text-sm font-bold text-alert-foreground">
-            <span className="inline-flex items-center gap-2"><Clock className="size-4" /> Oferta especial · Por tempo limitado</span>
+            <span className="inline-flex items-center gap-2">
+              <Clock className="size-4" /> Oferta especial por tempo limitado
+            </span>
           </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold sm:text-4xl">Escolha sua oferta especial</h2>
-          <p className="mt-3 text-center text-muted-foreground">Material digital para momentos de aprendizado, criatividade e fé em família</p>
-          <p className="mt-2 text-center text-sm font-bold text-cta-dark">Acesso imediato · Garantia de 7 dias · Impressão ilimitada</p>
+
+          <h2 className="mt-6 text-center text-3xl font-extrabold sm:text-4xl">Escolha seu pacote</h2>
+          <p className="mt-3 text-center text-muted-foreground">
+            Acesso imediato · Garantia de 7 dias · Impressão ilimitada
+          </p>
 
           <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
             <Reveal>
               <div className="rounded-3xl border border-border bg-card p-7 shadow-soft">
-                <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold"><Star className="size-6 fill-gold text-gold" /> Pacote Básico</h3>
-                <p className="mt-5 text-center text-sm font-extrabold uppercase tracking-wide text-cta-dark">Entrada simples para começar</p>
+                <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold">
+                  <Star className="size-6 fill-gold text-gold" /> Pacote Básico
+                </h3>
+                <p className="mt-5 text-center text-sm font-extrabold uppercase tracking-wide text-cta-dark">
+                  Ideal para começar
+                </p>
                 <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 8,90</p>
-                <p className="mt-2 text-center text-sm text-muted-foreground">Pagamento único • acesso vitalício</p>
+                <p className="mt-2 text-center text-sm text-muted-foreground">
+                  Pagamento único • acesso vitalício
+                </p>
                 <ul className="mt-6 space-y-3">
-                  {["+ de 30 Livros de Colorir em PDF", "Temas Bíblicos Variados", "Acesso Vitalício", "Impressão Ilimitada", "Garantia de 7 dias"].map((i) => (
-                    <li key={i} className="flex items-center gap-3 text-[15px]"><Check className="size-5 shrink-0 text-cta" /> {i}</li>
+                  {[
+                    "+ de 30 Livros de Colorir em PDF",
+                    "Temas Bíblicos Variados",
+                    "Acesso Vitalício",
+                    "Impressão Ilimitada",
+                    "Garantia de 7 dias",
+                  ].map((i) => (
+                    <li key={i} className="flex items-center gap-3 text-[15px]">
+                      <Check className="size-5 shrink-0 text-cta" /> {i}
+                    </li>
                   ))}
                 </ul>
-                <div className="mt-7"><CTA href={CHECKOUT_BASICO}>Quero o pacote básico</CTA></div>
+                <div className="mt-7">
+                  <CTA href={CHECKOUT_BASICO}>Quero o pacote básico</CTA>
+                </div>
               </div>
             </Reveal>
 
             <Reveal delay={120}>
               <div className="animate-wiggle relative rounded-3xl border-2 border-gold bg-card p-7 pt-10 shadow-card ring-4 ring-gold/25">
-                <span className="absolute -top-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-extrabold uppercase text-gold-foreground shadow-soft"><Crown className="size-4" /> Pacote completo</span>
-                <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold"><Crown className="size-6 text-gold" /> Pacote Premium</h3>
-                <p className="mt-5 text-center text-sm font-extrabold uppercase tracking-wide text-cta-dark">Mais conteúdo em um só pacote</p>
-                <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 19,90</p>
-                <p className="mt-2 text-center text-sm text-muted-foreground">Pagamento único • acesso vitalício</p>
+                <span className="absolute -top-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-extrabold uppercase text-gold-foreground shadow-soft">
+                  <Crown className="size-4" /> Mais completo
+                </span>
+                <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold">
+                  <Crown className="size-6 text-gold" /> Pacote Premium
+                </h3>
+                <p className="mt-5 text-center text-sm font-extrabold uppercase tracking-wide text-cta-dark">
+                  Tudo do Básico + bônus extras
+                </p>
+                <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 17,90</p>
+                <p className="mt-2 text-center text-sm text-muted-foreground">
+                  Pagamento único • acesso vitalício
+                </p>
 
                 <div className="mt-6 rounded-2xl bg-cta/10 p-4 text-center">
-                  <p className="text-xs font-extrabold uppercase tracking-wide text-cta-dark">No Premium você recebe</p>
-                  <p className="mt-1 text-sm font-bold text-foreground">Tudo do Básico + 5 benefícios extras</p>
+                  <p className="text-xs font-extrabold uppercase tracking-wide text-cta-dark">
+                    No Premium você recebe
+                  </p>
+                  <p className="mt-1 text-sm font-bold text-foreground">
+                    Tudo do Básico + 5 benefícios extras
+                  </p>
                 </div>
 
                 <ul className="mt-4 space-y-3">
@@ -315,7 +417,9 @@ function Index() {
                   ))}
                 </ul>
 
-                <div className="mt-7"><CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium</CTA></div>
+                <div className="mt-7">
+                  <CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium</CTA>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -326,7 +430,10 @@ function Index() {
               { icon: Printer, t: "Imprima quantas vezes quiser" },
               { icon: ShieldCheck, t: "7 dias de garantia" },
             ].map(({ icon: Icon, t }) => (
-              <div key={t} className="flex items-center justify-center gap-2 rounded-2xl bg-card px-4 py-4 text-center text-sm font-bold shadow-soft">
+              <div
+                key={t}
+                className="flex items-center justify-center gap-2 rounded-2xl bg-card px-4 py-4 text-center text-sm font-bold shadow-soft"
+              >
                 <Icon className="size-5 text-cta" /> {t}
               </div>
             ))}
@@ -340,7 +447,11 @@ function Index() {
           <div className="mt-8 space-y-3">
             {faq.map((f, i) => (
               <div key={f.q} className="overflow-hidden rounded-2xl bg-secondary">
-                <button type="button" onClick={() => setOpen(open === i ? null : i)} className="flex w-full items-center justify-between gap-4 p-5 text-left font-extrabold">
+                <button
+                  type="button"
+                  onClick={() => setOpen(open === i ? null : i)}
+                  className="flex w-full items-center justify-between gap-4 p-5 text-left font-extrabold"
+                >
                   {f.q}
                   <ChevronDown className={`size-5 shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`} />
                 </button>
@@ -349,21 +460,41 @@ function Index() {
             ))}
           </div>
 
-          <div className="mt-8 rounded-3xl border border-cta/20 bg-cta/5 p-6 text-center"><ShieldCheck className="mx-auto size-8 text-cta" /><h3 className="mt-3 text-xl font-extrabold">Compra protegida por 7 dias</h3><p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-muted-foreground">Você pode conhecer o material com tranquilidade. Se não ficar satisfeito dentro do prazo da garantia, é só solicitar o reembolso conforme as condições da oferta.</p></div>
-          <div className="mt-8"><CTA href={CHECKOUT_PREMIUM}>Já tirei minhas dúvidas — quero comprar</CTA></div>
+          <div className="mt-8 rounded-3xl border border-cta/20 bg-cta/5 p-6 text-center">
+            <ShieldCheck className="mx-auto size-8 text-cta" />
+            <h3 className="mt-3 text-xl font-extrabold">Compra protegida por 7 dias</h3>
+            <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-muted-foreground">
+              Você pode conhecer o material com tranquilidade. Se não ficar satisfeito dentro do prazo da garantia, é só solicitar o reembolso.
+            </p>
+          </div>
+
+          <div className="mt-8">
+            <CTA href={CHECKOUT_PREMIUM}>Já tirei minhas dúvidas — quero o Premium</CTA>
+          </div>
         </div>
       </section>
 
       <section className="bg-gradient-brand px-4 py-14 text-center text-brand-foreground sm:py-20">
         <div className="mx-auto max-w-2xl">
           <BookOpen className="mx-auto size-12 text-gold" />
-          <h2 className="mt-5 text-3xl font-extrabold sm:text-4xl">Comece hoje a colorir a fé das suas crianças</h2>
-          <p className="mt-4 text-brand-foreground/90">+ de 30 livros digitais para imprimir quando quiser. Acesso imediato + garantia de 7 dias.</p>
+          <h2 className="mt-5 text-3xl font-extrabold sm:text-4xl">
+            Comece hoje a colorir a fé das suas crianças
+          </h2>
+          <p className="mt-4 text-brand-foreground/90">
+            + de 30 livros digitais para imprimir quando quiser. Acesso imediato + garantia de 7 dias.
+          </p>
           <div className="mx-auto mt-8 max-w-sm space-y-3">
-            <CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium — R$ 19,90</CTA>
-            <a href={CHECKOUT_BASICO} className="block rounded-full border-2 border-white/40 px-6 py-3.5 text-sm font-extrabold uppercase tracking-wide transition hover:bg-white/10">Prefiro o básico — R$ 8,90</a>
+            <CTA href={CHECKOUT_PREMIUM}>Quero o Premium — R$ 17,90</CTA>
+            <a
+              href={CHECKOUT_BASICO}
+              className="block rounded-full border-2 border-white/40 px-6 py-3.5 text-sm font-extrabold uppercase tracking-wide transition hover:bg-white/10"
+            >
+              Prefiro o Básico — R$ 8,90
+            </a>
           </div>
-          <p className="mt-4 text-xs font-bold text-brand-foreground/70">★ Mais de 200 mães já baixaram · 7 dias de garantia</p>
+          <p className="mt-4 text-xs font-bold text-brand-foreground/70">
+            ★ Centenas de famílias já usam · 7 dias de garantia
+          </p>
         </div>
       </section>
 
@@ -373,7 +504,9 @@ function Index() {
       </footer>
 
       <div className="sticky bottom-0 z-30 border-t border-border bg-background/95 p-3 backdrop-blur lg:hidden">
-        <CTA href="#ofertas" className="py-3.5 text-sm">Quero o material a partir de R$ 8,90</CTA>
+        <CTA href="#ofertas" className="py-3.5 text-sm">
+          Quero o material a partir de R$ 8,90
+        </CTA>
       </div>
     </div>
   );
