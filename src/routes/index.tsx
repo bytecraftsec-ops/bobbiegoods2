@@ -75,10 +75,10 @@ const beneficios = [
 ];
 
 const livros = [
-  { img: book1, title: "Colorindo Versículos" },
-  { img: book2, title: "Histórias do Novo Testamento" },
-  { img: book3, title: "Noé e a Arca" },
-  { img: hero, title: "Jesus e as Crianças" },
+  { img: book1, title: "Pedro Discípulo" },
+  { img: book2, title: "A Arca de Noé" },
+  { img: book3, title: "Jonas e a Baleia" },
+  { img: hero, title: "Yeshua" },
 ];
 
 const depoimentos: Conversation[] = [
