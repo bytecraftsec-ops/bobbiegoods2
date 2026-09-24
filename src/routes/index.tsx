@@ -470,11 +470,10 @@ function Index() {
             Comece hoje a colorir a fé das suas crianças
           </h2>
           <p className="mt-4 text-brand-foreground/90">
-            Mais de 340 famílias, professoras e líderes já usam esse material. Por menos que um
-            lanche, você leva 35 livros para sempre.
+            35 livros digitais para imprimir quando quiser, com acesso conforme as condições da oferta.
           </p>
           <div className="mx-auto mt-8 max-w-sm space-y-3">
-            <CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium — R$ 17</CTA>
+            <CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium — R$ 19,90</CTA>
             <a
               href={CHECKOUT_BASICO}
               className="block rounded-full border-2 border-white/40 px-6 py-3.5 text-sm font-extrabold uppercase tracking-wide"
