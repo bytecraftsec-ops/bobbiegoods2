@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";\nimport { useState } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   BookOpen,
   Check,
