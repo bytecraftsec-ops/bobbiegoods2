@@ -30,17 +30,17 @@ const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/8amwnbd";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "35 Livros de Colorir Cristãos — Só R$ 8,90" },
+      { title: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 8,90" },
       {
         name: "description",
         content:
-          "35 livros de colorir cristãos em PDF para imprimir quantas vezes quiser. Ideais para célula, escola dominical e devocional em família. Acesso vitalício a partir de R$ 8,90.",
+          "+ de 30 livros de colorir cristãos em PDF para imprimir quantas vezes quiser. Ideais para célula, escola dominical e devocional em família. Acesso vitalício a partir de R$ 8,90.",
       },
-      { property: "og:title", content: "35 Livros de Colorir Cristãos — Só R$ 8,90" },
+      { property: "og:title", content: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 8,90" },
       {
         property: "og:description",
         content:
-          "Momentos de fé com as crianças: 35 livros de colorir em PDF, acesso vitalício e impressão ilimitada.",
+          "Momentos de fé com as crianças: + de 30 livros de colorir em PDF, acesso vitalício e impressão ilimitada.",
       },
     ],
   }),
@@ -142,8 +142,9 @@ function Index() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
           <div className="order-2 text-center lg:order-1 lg:text-left">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-extrabold uppercase tracking-wide backdrop-blur sm:text-sm"><Sparkles className="size-4 text-gold" /> Kit digital infantil</span>
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">Uma atividade que a criança<br /><span className="text-gold">vai querer fazer de novo.</span></h1>
-            <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-brand-foreground/90 lg:mx-0">Um kit com <strong>35 livros de colorir em PDF</strong> para você imprimir em casa e transformar um tempinho livre em uma atividade simples, criativa e especial.</p>
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl"><span className="text-gold">+ de 30 livrinhos cristãos</span><br />para imprimir e colorir.</h1>
+            <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-brand-foreground/90 lg:mx-0">Um material digital pensado para mães que querem ter uma atividade simples, criativa e com valores cristãos para fazer com as crianças em casa.</p>
+            <div className="mx-auto mt-5 flex max-w-md flex-wrap items-center justify-center gap-2 lg:mx-0 lg:justify-start"><span className="rounded-full bg-white/15 px-3 py-2 text-sm font-extrabold">PDF para imprimir</span><span className="rounded-full bg-white/15 px-3 py-2 text-sm font-extrabold">Acesso imediato</span><span className="rounded-full bg-white/15 px-3 py-2 text-sm font-extrabold">A partir de R$ 8,90</span></div>
 
             <ul className="mx-auto mt-6 max-w-md space-y-3 lg:mx-0">
               {[
@@ -163,7 +164,7 @@ function Index() {
             </ul>
 
             <div className="mx-auto mt-7 max-w-md lg:mx-0">
-              <CTA href="#ofertas">Quero ver as ofertas</CTA>
+              <CTA href="#ofertas">Ver os pacotes</CTA>
               <p className="mt-3 flex items-center justify-center gap-2 text-xs text-brand-foreground/80 lg:justify-start">
                 <Zap className="size-4" /> Acesso imediato · <ShieldCheck className="size-4" /> 7
                 dias de garantia
@@ -191,7 +192,7 @@ function Index() {
               {[
                 "Acesso imediato",
                 "Impressão ilimitada",
-                "35 livros em PDF",
+                "+ de 30 livros em PDF",
                 "Acesso vitalício",
                 "7 dias de garantia",
                 "Bônus mensais no premium",
@@ -232,7 +233,7 @@ function Index() {
           </div>
 
           <div className="mx-auto mt-10 max-w-sm">
-            <CTA href="#ofertas">Quero ver as ofertas</CTA>
+            <CTA href="#ofertas">Ver os pacotes</CTA>
           </div>
         </div>
       </section>
@@ -269,7 +270,7 @@ function Index() {
           </div>
 
           <div className="mx-auto mt-10 max-w-sm">
-            <CTA href="#ofertas">Quero ver as ofertas</CTA>
+            <CTA href="#ofertas">Ver os pacotes</CTA>
           </div>
         </div>
       </section>
@@ -318,14 +319,14 @@ function Index() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto w-fit rounded-full bg-alert px-5 py-2 text-center text-sm font-bold text-alert-foreground">
             <span className="inline-flex items-center gap-2">
-              <Clock className="size-4" /> Oferta válida somente hoje
+              <Clock className="size-4" /> Escolha o pacote que combina com você
             </span>
           </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold sm:text-4xl">
             Escolha sua oferta especial
           </h2>
           <p className="mt-3 text-center text-muted-foreground">
-            Livros de qualidade profissional para enriquecer seus momentos de fé
+            Material digital para momentos de aprendizado, criatividade e fé em família
           </p>
 
           <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
@@ -335,18 +336,13 @@ function Index() {
               <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold">
                 <Star className="size-6 fill-gold text-gold" /> Pacote Básico
               </h3>
-              <p className="mt-4 text-center text-lg font-bold text-alert line-through">R$ 47,00</p>
-              <p className="mx-auto mt-1 w-fit rounded-full bg-cta px-3 py-1 text-xs font-bold text-cta-foreground">
-                -81%
-              </p>
+              <p className="mt-5 text-center text-sm font-extrabold uppercase tracking-wide text-cta-dark">Entrada simples para começar</p>
               <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 8,90</p>
-              <p className="mt-2 text-center text-sm text-muted-foreground">
-                Você economiza R$ 38,10
-              </p>
+              <p className="mt-2 text-center text-sm text-muted-foreground">Pagamento único • acesso vitalício</p>
 
               <ul className="mt-6 space-y-3">
                 {[
-                  "35 Livros de Colorir em PDF",
+                  "+ de 30 Livros de Colorir em PDF",
                   "Temas Bíblicos Variados",
                   "Acesso Vitalício",
                   "Impressão Ilimitada",
@@ -368,21 +364,14 @@ function Index() {
             <Reveal delay={120}>
             <div className="animate-wiggle relative rounded-3xl border-2 border-gold bg-card p-7 pt-10 shadow-card ring-4 ring-gold/25">
               <span className="absolute -top-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-extrabold uppercase text-gold-foreground shadow-soft">
-                <Crown className="size-4" /> Mais vendido
+                <Crown className="size-4" /> Pacote completo
               </span>
               <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold">
                 <Crown className="size-6 text-gold" /> Pacote Premium
               </h3>
-              <p className="mt-4 text-center text-lg font-bold text-alert line-through">
-                R$ 256,00
-              </p>
-              <p className="mx-auto mt-1 w-fit rounded-full bg-cta px-3 py-1 text-xs font-bold text-cta-foreground">
-                -93%
-              </p>
+              <p className="mt-5 text-center text-sm font-extrabold uppercase tracking-wide text-cta-dark">Mais conteúdo em um só pacote</p>
               <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 19,90</p>
-              <p className="mt-2 text-center text-sm text-muted-foreground">
-                Você economiza R$ 239,00
-              </p>
+              <p className="mt-2 text-center text-sm text-muted-foreground">Pagamento único • acesso vitalício</p>
 
               <p className="mt-6 rounded-2xl bg-cta/10 py-3 text-center font-extrabold text-cta-dark">
                 TUDO DO PACOTE BÁSICO +
@@ -454,9 +443,8 @@ function Index() {
             ))}
           </div>
 
-          <div className="mt-8">
-            <CTA href={CHECKOUT_PREMIUM}>Tirei minhas dúvidas, quero comprar</CTA>
-          </div>
+          <div className="mt-8 rounded-3xl border border-cta/20 bg-cta/5 p-6 text-center"><ShieldCheck className="mx-auto size-8 text-cta" /><h3 className="mt-3 text-xl font-extrabold">Compra protegida por 7 dias</h3><p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-muted-foreground">Você pode conhecer o material com tranquilidade. Se não ficar satisfeito dentro do prazo da garantia, é só solicitar o reembolso conforme as condições da oferta.</p></div>
+          <div className="mt-8"><CTA href={CHECKOUT_PREMIUM}>Já tirei minhas dúvidas — quero comprar</CTA></div>
         </div>
       </section>
 
@@ -468,7 +456,7 @@ function Index() {
             Comece hoje a colorir a fé das suas crianças
           </h2>
           <p className="mt-4 text-brand-foreground/90">
-            35 livros digitais para imprimir quando quiser, com acesso conforme as condições da oferta.
+            + de 30 livros digitais para imprimir quando quiser, com acesso conforme as condições da oferta.
           </p>
           <div className="mx-auto mt-8 max-w-sm space-y-3">
             <CTA href={CHECKOUT_PREMIUM}>Quero o pacote premium — R$ 19,90</CTA>
@@ -489,8 +477,8 @@ function Index() {
 
       {/* CTA fixo no mobile */}
       <div className="sticky bottom-0 z-30 border-t border-border bg-background/95 p-3 backdrop-blur lg:hidden">
-        <CTA href={CHECKOUT_PREMIUM} className="py-3.5 text-sm">
-          Garantir meus 35 livros
+        <CTA href="#ofertas" className="py-3.5 text-sm">
+          Ver ofertas a partir de R$ 8,90
         </CTA>
       </div>
     </div>
