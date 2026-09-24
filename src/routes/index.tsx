@@ -1,23 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import {
   BookOpen,
   Check,
-  Clock,
   Crown,
   Gift,
-  GraduationCap,
   Heart,
-  Church,
   Printer,
   ShieldCheck,
   Star,
-  Users,
   Zap,
   ChevronDown,
 } from "lucide-react";
 import { Carousel } from "@/components/Carousel";
-import ChatPrint, { type Conversation } from "@/components/ChatPrint";
 import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/hero.jpg";
 import book1 from "@/assets/book-1.jpg";
@@ -81,66 +75,17 @@ const livros = [
   { img: hero, title: "Yeshua" },
 ];
 
-const depoimentos: Conversation[] = [
-  {
-    nome: "Ana Paula",
-    handle: "anapaula.santos",
-    avatarColor: "#e1306c",
-    mensagens: [
-      { from: "loja", text: "Oii Ana, tudo bem? Confirma se chegou o acesso dos livrinhos 😊" },
-      { from: "cliente", text: "Chegou simm! Acabei de baixar tudo" },
-      { from: "cliente", text: "As crianças da escola dominical AMARAM, imprimi pra turma inteira" },
-      { from: "cliente", text: "Melhores R$ 10 que já investi 🥰", heart: true },
-      { from: "loja", text: "Que alegria! Deus abençoe seu ministério 🙏" },
-    ],
-  },
-  {
-    nome: "Juliana Ferreira",
-    handle: "ju_ferreira",
-    avatarColor: "#8a3ab9",
-    mensagens: [
-      { from: "cliente", text: "Oii! Fiz o pagamento agora, em quanto tempo recebo?" },
-      { from: "loja", text: "Oii Ju! Chega no seu e-mail em até 2 minutinhos 😊 Qualquer coisa confere a caixa de spam!" },
-      { from: "cliente", text: "Recebiii, obrigada ❤️", heart: true },
-      { from: "cliente", text: "Gente, meu filho largou o celular pra colorir 😱 agora fazemos o devocional juntos toda noite" },
-      { from: "loja", text: "Aaaah que lindo!! Deus abençoe sua família 🥰🙏" },
-    ],
-  },
-  {
-    nome: "Marcos Silva",
-    handle: "marcosilva_ofc",
-    avatarColor: "#0f9d58",
-    mensagens: [
-      { from: "cliente", text: "Bom dia! Pode enviar por aqui mesmo?" },
-      { from: "loja", text: "Bom dia Marcos! Acabei de te enviar o link com todos os PDFs 🙏" },
-      { from: "cliente", text: "Recebi! Material top, uso nas reuniões de célula" },
-      { from: "cliente", text: "Os pais sempre pedem pra levar as folhas pra casa 😂", heart: true },
-      { from: "loja", text: "Hahaha que bênção! Qualquer coisa é só chamar 😊" },
-    ],
-  },
-  {
-    nome: "Débora Lima",
-    handle: "debora.lima",
-    avatarColor: "#f56040",
-    mensagens: [
-      { from: "cliente", text: "Amiga, os desenhos são LINDOS" },
-      { from: "cliente", text: "Peguei o premium pelos bônus e não me arrependo 😍" },
-      { from: "loja", text: "Fico muito feliz Débora! Se puder me marcar quando postar eu agradeço 🥰" },
-      { from: "cliente", text: "Vou sim! Mais tarde posto", heart: true },
-    ],
-  },
-  {
-    nome: "Camila Rocha",
-    handle: "camilarocha",
-    avatarColor: "#405de6",
-    mensagens: [
-      { from: "loja", text: "Oii Camila! Conseguiu baixar os arquivos direitinho?" },
-      { from: "cliente", text: "Consegui sim! Qualidade profissional mesmo" },
-      { from: "cliente", text: "Sou professora e agora imprimo quantas vezes quiser, mudou meu planejamento 🙌" },
-      { from: "cliente", text: "Muito obrigada ❤️❤️❤️", heart: true },
-      { from: "loja", text: "Eu que agradeço, Deus abençoe sua vida! 🥰🙏" },
-    ],
-  },
+const depoimentos = [
+  { nome: "Carol", contexto: "Mãe", quote: "Meu filho tem 4 anos e tava super agitado hoje, coloquei ele pra fazer a atividade das vogais e ele ficou CALMO.", detalhe: "Foi a primeira vez em semanas que ele parou quieto pra fazer algo." },
+  { nome: "Ludyany", contexto: "Mãe", quote: "Nossa, que material maravilhoso! Minha filha amou as atividades de coordenação motora.", detalhe: "Feedback enviado depois de receber o acesso." },
+  { nome: "Mariana", contexto: "Mãe", quote: "Chegou tudo certinho no email. Baixei aqui e já imprimi 20 páginas pra testar.", detalhe: "Ela contou que a filha começou a atividade na hora." },
+  { nome: "Jéssica", contexto: "Mãe", quote: "Chegou! Já abri aqui, tá tudo certinho. Amei as histórias infantis, vou ler hoje pra ele dormir.", detalhe: "Feedback após receber o material." },
+  { nome: "Priscila", contexto: "Cliente", quote: "Ah, que alívio! Obrigada por resolver rápido. Sério, muito obrigada.", detalhe: "Ela também contou que indicaria para a irmã." },
+  { nome: "Juliana", contexto: "Mãe de gêmeos", quote: "Esse material tá sendo a salvação aqui em casa. Os dois ficam quietos fazendo as folhinhas juntos.", detalhe: "Ela disse que já indicou para o grupo de mães da escolinha." },
+  { nome: "Amanda", contexto: "Cliente", quote: "Acabei de receber os arquivos e GENTE... que material é esse? Muito melhor do que eu imaginava.", detalhe: "Ela contou que chegou desconfiada pelo anúncio e se surpreendeu com o material." },
+  { nome: "Beatriz", contexto: "Professora", quote: "O material é EXCELENTE. As atividades são bem pensadas, sequência didática impecável.", detalhe: "Ela disse que recomendaria para outras professoras da escola." },
+  { nome: "Tatiane", contexto: "Mãe", quote: "Gente, ele FEZ 8 páginas seguidas hoje. 8 páginas!! Nunca vi ele concentrado assim.", detalhe: "Ela contou que é mãe solo de um menino de 6 anos." },
+  { nome: "Larissa", contexto: "Avó", quote: "Agora a gente faz as atividades juntos, ele adora. Melhor compra que fiz esse ano.", detalhe: "Ela comprou o material para fazer atividades com o netinho de 4 anos." },
 ];
 
 const faq = [
@@ -185,31 +130,6 @@ function CTA({
   );
 }
 
-function Countdown() {
-  const [left, setLeft] = useState({ h: 0, m: 0, s: 0 });
-  useEffect(() => {
-    const tick = () => {
-      const now = new Date();
-      const end = new Date(now);
-      end.setHours(23, 59, 59, 999);
-      const diff = Math.max(0, end.getTime() - now.getTime());
-      setLeft({
-        h: Math.floor(diff / 3600000),
-        m: Math.floor((diff % 3600000) / 60000),
-        s: Math.floor((diff % 60000) / 1000),
-      });
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return (
-    <span className="tabular-nums">
-      {pad(left.h)}:{pad(left.m)}:{pad(left.s)}
-    </span>
-  );
-}
 
 function Index() {
   const [open, setOpen] = useState<number | null>(0);
@@ -217,26 +137,15 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Barra de urgência */}
-      <div className="sticky top-0 z-30 bg-alert px-4 py-2 text-center text-xs font-bold text-alert-foreground sm:text-sm">
-        <span className="inline-flex items-center gap-2">
-          <Clock className="size-4" />
-          OFERTA LIMITADA — termina em <Countdown />
-        </span>
-      </div>
+      <div className="border-b border-border bg-white px-4 py-2.5 text-center text-xs font-bold text-foreground sm:text-sm"><span className="inline-flex items-center justify-center gap-2"><ShieldCheck className="size-4 text-cta" /> Produto digital • Pagamento seguro • Acesso após a confirmação</span></div>
 
       {/* Hero */}
       <header className="relative overflow-hidden bg-gradient-brand px-4 pb-14 pt-10 text-brand-foreground sm:pb-20 sm:pt-14">
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
           <div className="order-2 text-center lg:order-1 lg:text-left">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wide sm:text-sm">
-              <Star className="size-4 fill-gold text-gold" /> 4.9/5 — mais de 340 famílias
-            </span>
-            <h1 className="mt-5 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-              35 Livros de Colorir <span className="text-gold">Cristãos</span>
-            </h1>
-            <p className="mx-auto mt-4 max-w-md text-lg text-brand-foreground/90 lg:mx-0">
-              Transforme momentos especiais com sua família, célula e escola dominical.
-            </p>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-extrabold uppercase tracking-wide backdrop-blur sm:text-sm"><Sparkles className="size-4 text-gold" /> Kit digital infantil</span>
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">Uma atividade que a criança<br /><span className="text-gold">vai querer fazer de novo.</span></h1>
+            <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-brand-foreground/90 lg:mx-0">Um kit com <strong>35 livros de colorir em PDF</strong> para você imprimir em casa e transformar um tempinho livre em uma atividade simples, criativa e especial.</p>
 
             <ul className="mx-auto mt-6 max-w-md space-y-3 lg:mx-0">
               {[
@@ -367,32 +276,37 @@ function Index() {
         </div>
       </section>
 
-      {/* Depoimentos */}
-      <section className="px-4 py-14 sm:py-20">
-        <Reveal>
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-center text-3xl font-extrabold sm:text-4xl">
-            O que nossos clientes dizem
-          </h2>
-          <div className="mt-3 flex flex-col items-center gap-1">
-            <div className="flex gap-1">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="size-6 fill-gold text-gold" />
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground">4.9/5 — 347 avaliações</p>
+      {/* DEPOIMENTOS REAIS */}
+      <section className="relative overflow-hidden bg-[#fffaf3] px-4 py-14 sm:py-20">
+        <div className="pointer-events-none absolute -left-20 top-10 size-56 rounded-full bg-gold/15 blur-3xl" />
+        <div className="pointer-events-none absolute -right-20 bottom-10 size-56 rounded-full bg-brand/10 blur-3xl" />
+        <Reveal className="relative mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-cta/10 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-cta-dark">
+              <Star className="size-4 fill-gold text-gold" /> Relatos reais
+            </span>
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">Quem recebeu o material conta como foi</h2>
+            <p className="mt-3 leading-7 text-muted-foreground">Alguns dos comentários enviados por clientes após receberem e utilizarem o material.</p>
           </div>
-
           <div className="mt-10">
-            <Carousel label="Depoimentos de clientes">
+            <Carousel label="Relatos reais de clientes" itemClassName="w-[84%] sm:w-[46%] lg:w-[31%]" hideArrows>
               {depoimentos.map((d) => (
-                <div key={d.nome} className="h-full w-[280px] sm:w-[300px]">
-                  <ChatPrint conv={d} />
-                </div>
+                <article key={d.nome} className="group h-full rounded-[1.75rem] border border-border bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-card">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="flex size-11 items-center justify-center rounded-full bg-brand/10 text-sm font-extrabold text-brand">{d.nome.charAt(0)}</div>
+                      <div><p className="font-extrabold">{d.nome}</p><p className="text-xs text-muted-foreground">{d.contexto}</p></div>
+                    </div>
+                    <span className="rounded-full bg-cta/10 px-2.5 py-1 text-[11px] font-extrabold text-cta-dark">Feedback</span>
+                  </div>
+                  <div className="mt-5 rounded-2xl bg-secondary p-4"><p className="text-[15px] font-bold leading-7 text-foreground">“{d.quote}”</p></div>
+                  <p className="mt-4 text-sm leading-6 text-muted-foreground">{d.detalhe}</p>
+                  <div className="mt-5 flex items-center gap-2 text-xs font-extrabold text-cta-dark"><ShieldCheck className="size-4" /> Relato enviado por cliente</div>
+                </article>
               ))}
             </Carousel>
           </div>
-        </div>
+          <p className="mt-5 text-center text-xs font-bold text-muted-foreground">Arraste para o lado no celular para ver mais relatos.</p>
         </Reveal>
       </section>
 
