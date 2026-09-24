@@ -20,9 +20,6 @@ import {
 import { Carousel } from "@/components/Carousel";
 import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/hero.jpg";
-import book1 from "@/assets/book-1.jpg";
-import book2 from "@/assets/book-2.jpg";
-import book3 from "@/assets/book-3.jpg";
 
 const CHECKOUT_BASICO = "https://pay.cakto.com.br/n2t4fub";
 const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/8amwnbd";
@@ -74,13 +71,32 @@ const beneficios = [
   },
 ];
 
+// Páginas reais dos livros (otimizadas)
 const livros = [
-  { img: book1, title: "Pedro Discípulo" },
-  { img: book2, title: "A Arca de Noé" },
-  { img: book3, title: "Jonas e a Baleia" },
-  { img: hero, title: "Yeshua" },
+  { img: "/livros-opt/livro-01.jpg", title: "Criação" },
+  { img: "/livros-opt/livro-02.jpg", title: "Noé e a Arca" },
+  { img: "/livros-opt/livro-03.jpg", title: "Moisés" },
+  { img: "/livros-opt/livro-04.jpg", title: "Davi e Golias" },
+  { img: "/livros-opt/livro-05.jpg", title: "Jonas" },
+  { img: "/livros-opt/livro-06.jpg", title: "Jesus e as Crianças" },
+  { img: "/livros-opt/livro-07.jpg", title: "A Vida de Jesus" },
+  { img: "/livros-opt/livro-08.jpg", title: "Versículos" },
+  { img: "/livros-opt/livro-09.jpg", title: "Histórias Bíblicas" },
+  { img: "/livros-opt/livro-16.jpg", title: "Pastor" },
+  { img: "/livros-opt/livro-17.jpg", title: "Capa — A Vida de Jesus" },
 ];
 
+// Fotos reais de crianças usando o material
+const provasReais = [
+  { src: "/provas-opt/prova-1.jpg", alt: "Criança colorindo Jesus acalma a tempestade" },
+  { src: "/provas-opt/prova-2.jpg", alt: "Mãe e filha colorindo juntas Jesus ama as crianças" },
+  { src: "/provas-opt/prova-3.jpg", alt: "Menino pintando A Arca de Noé" },
+  { src: "/provas-opt/prova-4.jpg", alt: "Criança colorindo material bíblico" },
+  { src: "/provas-opt/prova-5.jpg", alt: "Família usando os livros de colorir" },
+  { src: "/provas-opt/prova-6.jpg", alt: "Material impresso sendo usado" },
+];
+
+// Prints reais de depoimentos (WhatsApp)
 const depoimentos = Array.from({ length: 10 }, (_, index) => ({
   src: `/depoimentos/prompt${index + 1}.png`,
   alt: `Depoimento real de cliente ${index + 1}`,
@@ -133,12 +149,14 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Top bar */}
       <div className="border-b border-border bg-white px-4 py-2.5 text-center text-xs font-bold text-foreground sm:text-sm">
         <span className="inline-flex items-center justify-center gap-2">
           <ShieldCheck className="size-4 text-cta" /> Produto digital • Pagamento seguro • Acesso imediato no e-mail
         </span>
       </div>
 
+      {/* HERO */}
       <header className="relative overflow-hidden bg-gradient-brand px-4 pb-14 pt-10 text-brand-foreground sm:pb-20 sm:pt-14">
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
           <div className="order-2 text-center lg:order-1 lg:text-left">
@@ -210,6 +228,7 @@ function Index() {
         </div>
       </header>
 
+      {/* Ticker */}
       <div className="overflow-hidden border-y border-border bg-gold/15 py-3">
         <div className="animate-ticker flex w-max items-center gap-8 whitespace-nowrap text-sm font-extrabold uppercase tracking-wide text-foreground/80">
           {[0, 1].map((n) => (
@@ -231,6 +250,7 @@ function Index() {
         </div>
       </div>
 
+      {/* Benefícios */}
       <section className="px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-extrabold sm:text-4xl">Perfeito para cada momento</h2>
@@ -258,11 +278,12 @@ function Index() {
         </div>
       </section>
 
+      {/* Exemplos do material — páginas reais */}
       <section className="bg-secondary px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center text-3xl font-extrabold sm:text-4xl">Veja exemplos do material</h2>
+          <h2 className="text-center text-3xl font-extrabold sm:text-4xl">Veja páginas reais do material</h2>
           <p className="mt-3 text-center text-muted-foreground">
-            Confira alguns dos temas disponíveis no kit antes de escolher seu pacote
+            Arraste para o lado e confira a qualidade dos desenhos antes de escolher seu pacote
           </p>
 
           <div className="mt-10">
@@ -273,9 +294,9 @@ function Index() {
                     src={l.img}
                     alt={l.title}
                     loading="lazy"
-                    width={912}
-                    height={912}
-                    className="aspect-square w-full object-cover"
+                    width={800}
+                    height={571}
+                    className="aspect-[4/3] w-full object-cover"
                   />
                   <figcaption className="p-4 text-center font-bold">{l.title}</figcaption>
                 </figure>
@@ -289,6 +310,42 @@ function Index() {
         </div>
       </section>
 
+      {/* Fotos reais de crianças usando */}
+      <section className="px-4 py-14 sm:py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-cta/10 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-cta-dark">
+              <Heart className="size-4 fill-cta text-cta" /> Na prática
+            </span>
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              Crianças realmente usando o material
+            </h2>
+            <p className="mt-3 leading-7 text-muted-foreground">
+              Fotos reais de famílias e crianças colorindo os livrinhos em casa.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <Carousel label="Crianças colorindo o material" itemClassName="w-[90%] sm:w-[55%] lg:w-[38%]">
+              {provasReais.map((p) => (
+                <figure
+                  key={p.src}
+                  className="overflow-hidden rounded-[1.75rem] border border-border bg-white shadow-soft"
+                >
+                  <img
+                    src={p.src}
+                    alt={p.alt}
+                    loading="lazy"
+                    className="h-auto w-full object-cover"
+                  />
+                </figure>
+              ))}
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
+      {/* Depoimentos (prints WhatsApp) */}
       <section className="relative overflow-hidden bg-[#fffaf3] px-4 py-14 sm:py-20">
         <div className="pointer-events-none absolute -left-20 top-10 size-56 rounded-full bg-gold/15 blur-3xl" />
         <div className="pointer-events-none absolute -right-20 bottom-10 size-56 rounded-full bg-brand/10 blur-3xl" />
@@ -329,6 +386,7 @@ function Index() {
         </Reveal>
       </section>
 
+      {/* OFERTAS */}
       <section id="ofertas" className="scroll-mt-16 bg-secondary px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto w-fit rounded-full bg-alert px-5 py-2 text-center text-sm font-bold text-alert-foreground">
@@ -343,6 +401,7 @@ function Index() {
           </p>
 
           <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
+            {/* Básico */}
             <Reveal>
               <div className="rounded-3xl border border-border bg-card p-7 shadow-soft">
                 <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold">
@@ -374,6 +433,7 @@ function Index() {
               </div>
             </Reveal>
 
+            {/* Premium */}
             <Reveal delay={120}>
               <div className="animate-wiggle relative rounded-3xl border-2 border-gold bg-card p-7 pt-10 shadow-card ring-4 ring-gold/25">
                 <span className="absolute -top-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-extrabold uppercase text-gold-foreground shadow-soft">
@@ -441,6 +501,7 @@ function Index() {
         </div>
       </section>
 
+      {/* FAQ */}
       <section className="px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-2xl">
           <h2 className="text-center text-3xl font-extrabold sm:text-4xl">Perguntas frequentes</h2>
@@ -474,6 +535,7 @@ function Index() {
         </div>
       </section>
 
+      {/* CTA final */}
       <section className="bg-gradient-brand px-4 py-14 text-center text-brand-foreground sm:py-20">
         <div className="mx-auto max-w-2xl">
           <BookOpen className="mx-auto size-12 text-gold" />
@@ -503,6 +565,7 @@ function Index() {
         <p className="mt-2">Produto digital entregue em PDF. Garantia de 7 dias.</p>
       </footer>
 
+      {/* Sticky CTA mobile */}
       <div className="sticky bottom-0 z-30 border-t border-border bg-background/95 p-3 backdrop-blur lg:hidden">
         <CTA href="#ofertas" className="py-3.5 text-sm">
           Quero o material a partir de R$ 8,90
