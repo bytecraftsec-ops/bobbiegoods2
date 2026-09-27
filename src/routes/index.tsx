@@ -166,22 +166,37 @@ function Index() {
 
   useEffect(() => {
     let hideTimer: number | undefined;
-    let current = 0;
+    let shown = 0;
+    const maxShows = 2;
+    const timers: number[] = [];
 
-    const showNext = () => {
-      setNotificationIndex(current);
+    const showOne = (index: number) => {
+      setNotificationIndex(index);
       setShowNotification(true);
       if (hideTimer) window.clearTimeout(hideTimer);
-      hideTimer = window.setTimeout(() => setShowNotification(false), 5500);
-      current = (current + 1) % notificacoes.length;
+      hideTimer = window.setTimeout(() => setShowNotification(false), 5000);
     };
 
-    const initialTimer = window.setTimeout(showNext, 2800);
-    const rotationTimer = window.setInterval(showNext, 9000);
+    // 1º popup ~3s após carregar
+    timers.push(
+      window.setTimeout(() => {
+        showOne(0);
+        shown = 1;
+      }, 3000),
+    );
+
+    // 2º popup ~12s depois (só se ainda não fechou tudo)
+    timers.push(
+      window.setTimeout(() => {
+        if (shown < maxShows) {
+          showOne(1);
+          shown = 2;
+        }
+      }, 12000),
+    );
 
     return () => {
-      window.clearTimeout(initialTimer);
-      window.clearInterval(rotationTimer);
+      timers.forEach((t) => window.clearTimeout(t));
       if (hideTimer) window.clearTimeout(hideTimer);
     };
   }, []);
@@ -606,7 +621,7 @@ function Index() {
 
       {showNotification && (
         <div
-          className="sales-notification fixed bottom-24 left-4 z-[60] w-[calc(100vw-2rem)] max-w-[320px] sm:bottom-6 sm:left-6"
+          className="sales-notification fixed top-16 right-4 z-[60] w-[calc(100vw-2rem)] max-w-[300px] sm:top-20 sm:right-6"
           role="status"
           aria-live="polite"
         >

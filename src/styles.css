@@ -4,20 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
-
 @theme inline {
   --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Baloo 2", "Nunito", ui-sans-serif, system-ui, sans-serif;
@@ -262,7 +248,7 @@
 @keyframes sales-notification-in {
   from {
     opacity: 0;
-    transform: translate3d(-18px, 18px, 0) scale(0.96);
+    transform: translate3d(18px, -12px, 0) scale(0.96);
   }
   to {
     opacity: 1;
@@ -296,10 +282,6 @@
 }
 
 @media (max-width: 639px) {
-  .sales-notification {
-    bottom: 5.75rem;
-  }
-
   .sales-notification-card {
     min-height: 76px;
   }
