@@ -20,7 +20,6 @@ import {
 } from "lucide-react";
 import { Carousel } from "@/components/Carousel";
 import { Reveal } from "@/components/Reveal";
-import hero from "@/assets/hero.jpg";
 
 const CHECKOUT_BASICO = "https://pay.cakto.com.br/n2t4fub";
 const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/8amwnbd";
@@ -258,11 +257,11 @@ function Index() {
 
           <div className="order-1 lg:order-2">
             <img
-              src={hero}
-              alt="Ilustração cristã infantil para colorir"
-              width={912}
-              height={912}
-              className="animate-float mx-auto w-64 rounded-3xl shadow-card sm:w-80 lg:w-full lg:max-w-md"
+              src="/hero-colorir.jpg"
+              alt="Criança colorindo livros cristãos com giz de cera"
+              width={720}
+              height={899}
+              className="animate-float mx-auto w-64 rounded-3xl shadow-card object-cover sm:w-80 lg:w-full lg:max-w-md"
             />
           </div>
         </div>
