@@ -16,7 +16,6 @@ import {
   Users,
   Zap,
   ChevronDown,
-  Bell,
   X,
 } from "lucide-react";
 import { Carousel } from "@/components/Carousel";
@@ -105,26 +104,18 @@ const depoimentos = Array.from({ length: 10 }, (_, index) => ({
 }));
 
 const notificacoes = [
-  {
-    title: "Pacote Básico",
-    detail: "+ de 30 livros em PDF",
-    meta: "R$ 8,90 • acesso imediato",
-  },
-  {
-    title: "Pacote Premium",
-    detail: "+ de 30 livros + bônus extras",
-    meta: "R$ 17,90 • acesso imediato",
-  },
-  {
-    title: "Material digital",
-    detail: "Impressão ilimitada",
-    meta: "Acesso vitalício",
-  },
-  {
-    title: "Compra protegida",
-    detail: "Você tem 7 dias de garantia",
-    meta: "Pagamento seguro",
-  },
+  { name: "Roberto Lima", package: "Pacote Básico", city: "Fortaleza - CE", time: "48 min atrás" },
+  { name: "Ana Beatriz", package: "Pacote Premium", city: "São Paulo - SP", time: "12 min atrás" },
+  { name: "Carlos Eduardo", package: "Pacote Básico", city: "Belo Horizonte - MG", time: "1 h atrás" },
+  { name: "Juliana Souza", package: "Pacote Premium", city: "Curitiba - PR", time: "23 min atrás" },
+  { name: "Marcos Vinícius", package: "Pacote Básico", city: "Recife - PE", time: "5 min atrás" },
+  { name: "Fernanda Costa", package: "Pacote Premium", city: "Porto Alegre - RS", time: "37 min atrás" },
+  { name: "Lucas Oliveira", package: "Pacote Básico", city: "Salvador - BA", time: "2 h atrás" },
+  { name: "Patrícia Mendes", package: "Pacote Premium", city: "Brasília - DF", time: "9 min atrás" },
+  { name: "Ricardo Alves", package: "Pacote Básico", city: "Manaus - AM", time: "55 min atrás" },
+  { name: "Camila Rocha", package: "Pacote Premium", city: "Goiânia - GO", time: "18 min atrás" },
+  { name: "Thiago Ferreira", package: "Pacote Básico", city: "Campinas - SP", time: "3 min atrás" },
+  { name: "Larissa Nunes", package: "Pacote Premium", city: "Florianópolis - SC", time: "41 min atrás" },
 ];
 
 const faq = [
@@ -175,15 +166,24 @@ function Index() {
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
-    const initialTimer = window.setTimeout(() => setShowNotification(true), 3500);
-    const rotationTimer = window.setInterval(() => {
-      setNotificationIndex((current) => (current + 1) % notificacoes.length);
+    let hideTimer: number | undefined;
+    let current = 0;
+
+    const showNext = () => {
+      setNotificationIndex(current);
       setShowNotification(true);
-    }, 8500);
+      if (hideTimer) window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => setShowNotification(false), 5500);
+      current = (current + 1) % notificacoes.length;
+    };
+
+    const initialTimer = window.setTimeout(showNext, 2800);
+    const rotationTimer = window.setInterval(showNext, 9000);
 
     return () => {
       window.clearTimeout(initialTimer);
       window.clearInterval(rotationTimer);
+      if (hideTimer) window.clearTimeout(hideTimer);
     };
   }, []);
 
@@ -607,39 +607,41 @@ function Index() {
 
       {showNotification && (
         <div
-          className="sales-notification fixed bottom-24 left-4 z-[60] w-[calc(100vw-2rem)] max-w-sm sm:bottom-6 sm:left-6"
+          className="sales-notification fixed bottom-24 left-4 z-[60] w-[calc(100vw-2rem)] max-w-[320px] sm:bottom-6 sm:left-6"
           role="status"
           aria-live="polite"
         >
-          <a
-            href="#ofertas"
-            className="sales-notification-card group block rounded-2xl border border-border bg-white p-3.5 pr-10 shadow-2xl transition-transform duration-300 hover:-translate-y-0.5"
-          >
-            <div className="flex items-start gap-3">
-              <span className="sales-notification-icon mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-cta text-cta-foreground shadow-soft">
-                <Bell className="size-5" />
+          <div className="sales-notification-card relative overflow-hidden rounded-xl border border-border/60 bg-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.25)]">
+            <div className="flex items-center gap-3 p-3 pr-9">
+              <span className="sales-notification-icon flex size-11 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm">
+                <Check className="size-5 stroke-[2.5]" />
               </span>
-              <span className="min-w-0">
-                <span className="block text-sm font-extrabold text-foreground">
-                  {notificacoes[notificationIndex].title}
-                </span>
-                <span className="mt-0.5 block text-sm font-bold text-foreground/85">
-                  {notificacoes[notificationIndex].detail}
-                </span>
-                <span className="mt-1 block text-xs font-semibold text-muted-foreground">
-                  {notificacoes[notificationIndex].meta}
-                </span>
-              </span>
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-[13px] font-bold leading-tight text-emerald-600">
+                  {notificacoes[notificationIndex].name}
+                </p>
+                <p className="mt-0.5 text-[13px] font-semibold leading-tight text-foreground">
+                  Comprou:{" "}
+                  <span className="font-extrabold text-emerald-700">
+                    {notificacoes[notificationIndex].package}
+                  </span>
+                </p>
+                <p className="mt-1 text-[11px] font-medium text-muted-foreground">
+                  {notificacoes[notificationIndex].city}{" "}
+                  <span className="text-muted-foreground/80">·</span>{" "}
+                  {notificacoes[notificationIndex].time}
+                </p>
+              </div>
             </div>
-          </a>
-          <button
-            type="button"
-            aria-label="Fechar notificação"
-            onClick={() => setShowNotification(false)}
-            className="sales-notification-close absolute right-2 top-2 flex size-7 items-center justify-center rounded-full bg-muted text-muted-foreground transition hover:bg-secondary hover:text-foreground"
-          >
-            <X className="size-4" />
-          </button>
+            <button
+              type="button"
+              aria-label="Fechar notificação"
+              onClick={() => setShowNotification(false)}
+              className="sales-notification-close absolute right-1.5 top-1.5 flex size-6 items-center justify-center rounded-full text-muted-foreground/70 transition hover:bg-muted hover:text-foreground"
+            >
+              <X className="size-3.5" />
+            </button>
+          </div>
         </div>
       )}
 
