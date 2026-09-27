@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BookOpen,
   Check,
@@ -16,6 +16,8 @@ import {
   Users,
   Zap,
   ChevronDown,
+  Bell,
+  X,
 } from "lucide-react";
 import { Carousel } from "@/components/Carousel";
 import { Reveal } from "@/components/Reveal";
@@ -102,6 +104,29 @@ const depoimentos = Array.from({ length: 10 }, (_, index) => ({
   alt: `Depoimento real de cliente ${index + 1}`,
 }));
 
+const notificacoes = [
+  {
+    title: "Pacote Básico",
+    detail: "+ de 30 livros em PDF",
+    meta: "R$ 8,90 • acesso imediato",
+  },
+  {
+    title: "Pacote Premium",
+    detail: "+ de 30 livros + bônus extras",
+    meta: "R$ 17,90 • acesso imediato",
+  },
+  {
+    title: "Material digital",
+    detail: "Impressão ilimitada",
+    meta: "Acesso vitalício",
+  },
+  {
+    title: "Compra protegida",
+    detail: "Você tem 7 dias de garantia",
+    meta: "Pagamento seguro",
+  },
+];
+
 const faq = [
   {
     q: "Como recebo os livros?",
@@ -146,6 +171,21 @@ function CTA({
 
 function Index() {
   const [open, setOpen] = useState<number | null>(0);
+  const [notificationIndex, setNotificationIndex] = useState(0);
+  const [showNotification, setShowNotification] = useState(false);
+
+  useEffect(() => {
+    const initialTimer = window.setTimeout(() => setShowNotification(true), 3500);
+    const rotationTimer = window.setInterval(() => {
+      setNotificationIndex((current) => (current + 1) % notificacoes.length);
+      setShowNotification(true);
+    }, 8500);
+
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearInterval(rotationTimer);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -564,6 +604,44 @@ function Index() {
         <p>© {new Date().getFullYear()} · Livros de Colorir Cristãos. Todos os direitos reservados.</p>
         <p className="mt-2">Produto digital entregue em PDF. Garantia de 7 dias.</p>
       </footer>
+
+      {showNotification && (
+        <div
+          className="sales-notification fixed bottom-24 left-4 z-[60] w-[calc(100vw-2rem)] max-w-sm sm:bottom-6 sm:left-6"
+          role="status"
+          aria-live="polite"
+        >
+          <a
+            href="#ofertas"
+            className="sales-notification-card group block rounded-2xl border border-border bg-white p-3.5 pr-10 shadow-2xl transition-transform duration-300 hover:-translate-y-0.5"
+          >
+            <div className="flex items-start gap-3">
+              <span className="sales-notification-icon mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-cta text-cta-foreground shadow-soft">
+                <Bell className="size-5" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-extrabold text-foreground">
+                  {notificacoes[notificationIndex].title}
+                </span>
+                <span className="mt-0.5 block text-sm font-bold text-foreground/85">
+                  {notificacoes[notificationIndex].detail}
+                </span>
+                <span className="mt-1 block text-xs font-semibold text-muted-foreground">
+                  {notificacoes[notificationIndex].meta}
+                </span>
+              </span>
+            </div>
+          </a>
+          <button
+            type="button"
+            aria-label="Fechar notificação"
+            onClick={() => setShowNotification(false)}
+            className="sales-notification-close absolute right-2 top-2 flex size-7 items-center justify-center rounded-full bg-muted text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+          >
+            <X className="size-4" />
+          </button>
+        </div>
+      )}
 
       {/* Sticky CTA mobile */}
       <div className="sticky bottom-0 z-30 border-t border-border bg-background/95 p-3 backdrop-blur lg:hidden">
