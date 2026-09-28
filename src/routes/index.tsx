@@ -27,13 +27,13 @@ const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/8amwnbd";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 8,90" },
+      { title: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 10" },
       {
         name: "description",
         content:
-          "+ de 30 livros de colorir cristãos em PDF para imprimir quantas vezes quiser. Ideais para célula, escola dominical e devocional em família. Acesso vitalício a partir de R$ 8,90.",
+          "+ de 30 livros de colorir cristãos em PDF para imprimir quantas vezes quiser. Ideais para célula, escola dominical e devocional em família. Acesso vitalício a partir de R$ 10.",
       },
-      { property: "og:title", content: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 8,90" },
+      { property: "og:title", content: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 10" },
       {
         property: "og:description",
         content:
@@ -177,7 +177,6 @@ function Index() {
       hideTimer = window.setTimeout(() => setShowNotification(false), 5000);
     };
 
-    // 1º popup ~3s após carregar
     timers.push(
       window.setTimeout(() => {
         showOne(0);
@@ -185,7 +184,6 @@ function Index() {
       }, 3000),
     );
 
-    // 2º popup ~12s depois (só se ainda não fechou tudo)
     timers.push(
       window.setTimeout(() => {
         if (shown < maxShows) {
@@ -203,14 +201,12 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Top bar */}
       <div className="border-b border-border bg-white px-4 py-2.5 text-center text-xs font-bold text-foreground sm:text-sm">
         <span className="inline-flex items-center justify-center gap-2">
           <ShieldCheck className="size-4 text-cta" /> Produto digital • Pagamento seguro • Acesso imediato no e-mail
         </span>
       </div>
 
-      {/* HERO */}
       <header className="relative overflow-hidden bg-gradient-brand px-4 pb-14 pt-10 text-brand-foreground sm:pb-20 sm:pt-14">
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
           <div className="order-2 text-center lg:order-1 lg:text-left">
@@ -232,7 +228,7 @@ function Index() {
               <span className="rounded-full bg-white/15 px-3 py-2 text-sm font-extrabold">PDF para imprimir</span>
               <span className="rounded-full bg-white/15 px-3 py-2 text-sm font-extrabold">Acesso imediato</span>
               <span className="rounded-full bg-gold px-3 py-2 text-sm font-extrabold text-gold-foreground">
-                A partir de R$ 8,90
+                A partir de R$ 10
               </span>
             </div>
 
@@ -254,7 +250,7 @@ function Index() {
             </ul>
 
             <div className="mx-auto mt-7 max-w-md space-y-3 lg:mx-0">
-              <CTA href="#ofertas">Quero ver os pacotes a partir de R$ 8,90</CTA>
+              <CTA href="#ofertas">Quero ver os pacotes a partir de R$ 10</CTA>
               <a
                 href={CHECKOUT_PREMIUM}
                 className="block rounded-full border-2 border-white/50 bg-white/10 px-6 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide backdrop-blur transition hover:bg-white/20"
@@ -282,7 +278,6 @@ function Index() {
         </div>
       </header>
 
-      {/* Ticker */}
       <div className="overflow-hidden border-y border-border bg-gold/15 py-3">
         <div className="animate-ticker flex w-max items-center gap-8 whitespace-nowrap text-sm font-extrabold uppercase tracking-wide text-foreground/80">
           {[0, 1].map((n) => (
@@ -304,7 +299,6 @@ function Index() {
         </div>
       </div>
 
-      {/* Benefícios */}
       <section className="px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-extrabold sm:text-4xl">Perfeito para cada momento</h2>
@@ -332,7 +326,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Exemplos do material — páginas reais */}
       <section className="bg-secondary px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-extrabold sm:text-4xl">Veja páginas reais do material</h2>
@@ -364,7 +357,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Fotos reais de crianças usando */}
       <section className="px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
@@ -399,7 +391,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Depoimentos (prints WhatsApp) */}
       <section className="relative overflow-hidden bg-[#fffaf3] px-4 py-14 sm:py-20">
         <div className="pointer-events-none absolute -left-20 top-10 size-56 rounded-full bg-gold/15 blur-3xl" />
         <div className="pointer-events-none absolute -right-20 bottom-10 size-56 rounded-full bg-brand/10 blur-3xl" />
@@ -440,7 +431,6 @@ function Index() {
         </Reveal>
       </section>
 
-      {/* OFERTAS */}
       <section id="ofertas" className="scroll-mt-16 bg-secondary px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto w-fit rounded-full bg-alert px-5 py-2 text-center text-sm font-bold text-alert-foreground">
@@ -455,7 +445,6 @@ function Index() {
           </p>
 
           <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
-            {/* Básico */}
             <Reveal>
               <div className="rounded-3xl border border-border bg-card p-7 shadow-soft">
                 <h3 className="flex items-center justify-center gap-2 text-xl font-extrabold">
@@ -464,7 +453,7 @@ function Index() {
                 <p className="mt-5 text-center text-sm font-extrabold uppercase tracking-wide text-cta-dark">
                   Ideal para começar
                 </p>
-                <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 8,90</p>
+                <p className="mt-2 text-center text-5xl font-extrabold text-cta">R$ 10</p>
                 <p className="mt-2 text-center text-sm text-muted-foreground">
                   Pagamento único • acesso vitalício
                 </p>
@@ -487,7 +476,6 @@ function Index() {
               </div>
             </Reveal>
 
-            {/* Premium */}
             <Reveal delay={120}>
               <div className="animate-wiggle relative rounded-3xl border-2 border-gold bg-card p-7 pt-10 shadow-card ring-4 ring-gold/25">
                 <span className="absolute -top-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-extrabold uppercase text-gold-foreground shadow-soft">
@@ -555,7 +543,6 @@ function Index() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="px-4 py-14 sm:py-20">
         <div className="mx-auto max-w-2xl">
           <h2 className="text-center text-3xl font-extrabold sm:text-4xl">Perguntas frequentes</h2>
@@ -589,7 +576,6 @@ function Index() {
         </div>
       </section>
 
-      {/* CTA final */}
       <section className="bg-gradient-brand px-4 py-14 text-center text-brand-foreground sm:py-20">
         <div className="mx-auto max-w-2xl">
           <BookOpen className="mx-auto size-12 text-gold" />
@@ -605,7 +591,7 @@ function Index() {
               href={CHECKOUT_BASICO}
               className="block rounded-full border-2 border-white/40 px-6 py-3.5 text-sm font-extrabold uppercase tracking-wide transition hover:bg-white/10"
             >
-              Prefiro o Básico — R$ 8,90
+              Prefiro o Básico — R$ 10
             </a>
           </div>
           <p className="mt-4 text-xs font-bold text-brand-foreground/70">
@@ -659,10 +645,9 @@ function Index() {
         </div>
       )}
 
-      {/* Sticky CTA mobile */}
       <div className="sticky bottom-0 z-30 border-t border-border bg-background/95 p-3 backdrop-blur lg:hidden">
         <CTA href="#ofertas" className="py-3.5 text-sm">
-          Quero o material a partir de R$ 8,90
+          Quero o material a partir de R$ 10
         </CTA>
       </div>
     </div>
