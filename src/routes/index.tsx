@@ -70,7 +70,6 @@ const beneficios = [
   },
 ];
 
-// Páginas reais dos livros (otimizadas)
 const livros = [
   { img: "/livros-opt/livro-01.jpg", title: "Criação" },
   { img: "/livros-opt/livro-02.jpg", title: "Noé e a Arca" },
@@ -85,7 +84,6 @@ const livros = [
   { img: "/livros-opt/livro-17.jpg", title: "Capa — A Vida de Jesus" },
 ];
 
-// Fotos reais de crianças usando o material
 const provasReais = [
   { src: "/provas-opt/prova-1.jpg", alt: "Criança colorindo Jesus acalma a tempestade" },
   { src: "/provas-opt/prova-2.jpg", alt: "Mãe e filha colorindo juntas Jesus ama as crianças" },
@@ -95,7 +93,6 @@ const provasReais = [
   { src: "/provas-opt/prova-6.jpg", alt: "Material impresso sendo usado" },
 ];
 
-// Prints reais de depoimentos (WhatsApp)
 const depoimentos = Array.from({ length: 10 }, (_, index) => ({
   src: `/depoimentos/prompt${index + 1}.png`,
   alt: `Depoimento real de cliente ${index + 1}`,
@@ -226,9 +223,9 @@ function Index() {
       </header>
 
       <div className="overflow-hidden border-y border-border bg-gold/15 py-3">
-        <div className="animate-ticker flex w-max items-center gap-8 whitespace-nowrap text-sm font-extrabold uppercase tracking-wide text-foreground/80">
+        <div className="ticker-marquee text-sm font-extrabold uppercase tracking-wide text-foreground/80">
           {[0, 1].map((n) => (
-            <div key={n} className="flex items-center gap-8" aria-hidden={n === 1}>
+            <div key={n} className="ticker-marquee__group" aria-hidden={n === 1}>
               {[
                 "Acesso imediato",
                 "Impressão ilimitada",
@@ -237,7 +234,7 @@ function Index() {
                 "7 dias de garantia",
                 "Bônus mensais no premium",
               ].map((t) => (
-                <span key={t} className="inline-flex items-center gap-2">
+                <span key={`${n}-${t}`} className="inline-flex items-center gap-2">
                   <Star className="size-4 fill-gold text-gold" /> {t}
                 </span>
               ))}
