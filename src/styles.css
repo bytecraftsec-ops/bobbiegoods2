@@ -234,26 +234,8 @@
   animation: ticker-scroll 18s linear infinite;
 }
 
-/* Marquee da faixa de benefícios — classe dedicada pra garantir o scroll */
-.ticker-marquee {
-  display: flex;
-  width: max-content;
-  align-items: center;
-  white-space: nowrap;
-  animation: ticker-scroll 18s linear infinite;
-  will-change: transform;
-}
-.ticker-marquee__group {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding-right: 2rem;
-  flex-shrink: 0;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .animate-float, .animate-pulse-glow, .animate-wiggle, .animate-ticker,
-  .ticker-marquee {
+  .animate-float, .animate-pulse-glow, .animate-wiggle, .animate-ticker {
     animation: none;
   }
 }
