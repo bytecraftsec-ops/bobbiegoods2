@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   BookOpen,
   Check,
@@ -16,7 +16,6 @@ import {
   Users,
   Zap,
   ChevronDown,
-  X,
 } from "lucide-react";
 import { Carousel } from "@/components/Carousel";
 import { Reveal } from "@/components/Reveal";
@@ -102,21 +101,6 @@ const depoimentos = Array.from({ length: 10 }, (_, index) => ({
   alt: `Depoimento real de cliente ${index + 1}`,
 }));
 
-const notificacoes = [
-  { name: "Roberto Lima", package: "Pacote Básico", city: "Fortaleza - CE", time: "48 min atrás" },
-  { name: "Ana Beatriz", package: "Pacote Premium", city: "São Paulo - SP", time: "12 min atrás" },
-  { name: "Carlos Eduardo", package: "Pacote Básico", city: "Belo Horizonte - MG", time: "1 h atrás" },
-  { name: "Juliana Souza", package: "Pacote Premium", city: "Curitiba - PR", time: "23 min atrás" },
-  { name: "Marcos Vinícius", package: "Pacote Básico", city: "Recife - PE", time: "5 min atrás" },
-  { name: "Fernanda Costa", package: "Pacote Premium", city: "Porto Alegre - RS", time: "37 min atrás" },
-  { name: "Lucas Oliveira", package: "Pacote Básico", city: "Salvador - BA", time: "2 h atrás" },
-  { name: "Patrícia Mendes", package: "Pacote Premium", city: "Brasília - DF", time: "9 min atrás" },
-  { name: "Ricardo Alves", package: "Pacote Básico", city: "Manaus - AM", time: "55 min atrás" },
-  { name: "Camila Rocha", package: "Pacote Premium", city: "Goiânia - GO", time: "18 min atrás" },
-  { name: "Thiago Ferreira", package: "Pacote Básico", city: "Campinas - SP", time: "3 min atrás" },
-  { name: "Larissa Nunes", package: "Pacote Premium", city: "Florianópolis - SC", time: "41 min atrás" },
-];
-
 const faq = [
   {
     q: "Como recebo os livros?",
@@ -161,43 +145,6 @@ function CTA({
 
 function Index() {
   const [open, setOpen] = useState<number | null>(0);
-  const [notificationIndex, setNotificationIndex] = useState(0);
-  const [showNotification, setShowNotification] = useState(false);
-
-  useEffect(() => {
-    let hideTimer: number | undefined;
-    let shown = 0;
-    const maxShows = 2;
-    const timers: number[] = [];
-
-    const showOne = (index: number) => {
-      setNotificationIndex(index);
-      setShowNotification(true);
-      if (hideTimer) window.clearTimeout(hideTimer);
-      hideTimer = window.setTimeout(() => setShowNotification(false), 5000);
-    };
-
-    timers.push(
-      window.setTimeout(() => {
-        showOne(0);
-        shown = 1;
-      }, 3000),
-    );
-
-    timers.push(
-      window.setTimeout(() => {
-        if (shown < maxShows) {
-          showOne(1);
-          shown = 2;
-        }
-      }, 12000),
-    );
-
-    return () => {
-      timers.forEach((t) => window.clearTimeout(t));
-      if (hideTimer) window.clearTimeout(hideTimer);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -604,46 +551,6 @@ function Index() {
         <p>© {new Date().getFullYear()} · Livros de Colorir Cristãos. Todos os direitos reservados.</p>
         <p className="mt-2">Produto digital entregue em PDF. Garantia de 7 dias.</p>
       </footer>
-
-      {showNotification && (
-        <div
-          className="sales-notification fixed top-16 right-4 z-[60] w-[calc(100vw-2rem)] max-w-[300px] sm:top-20 sm:right-6"
-          role="status"
-          aria-live="polite"
-        >
-          <div className="sales-notification-card relative overflow-hidden rounded-xl border border-border/60 bg-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.25)]">
-            <div className="flex items-center gap-3 p-3 pr-9">
-              <span className="sales-notification-icon flex size-11 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm">
-                <Check className="size-5 stroke-[2.5]" />
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-[13px] font-bold leading-tight text-emerald-600">
-                  {notificacoes[notificationIndex].name}
-                </p>
-                <p className="mt-0.5 text-[13px] font-semibold leading-tight text-foreground">
-                  Comprou:{" "}
-                  <span className="font-extrabold text-emerald-700">
-                    {notificacoes[notificationIndex].package}
-                  </span>
-                </p>
-                <p className="mt-1 text-[11px] font-medium text-muted-foreground">
-                  {notificacoes[notificationIndex].city}{" "}
-                  <span className="text-muted-foreground/80">·</span>{" "}
-                  {notificacoes[notificationIndex].time}
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              aria-label="Fechar notificação"
-              onClick={() => setShowNotification(false)}
-              className="sales-notification-close absolute right-1.5 top-1.5 flex size-6 items-center justify-center rounded-full text-muted-foreground/70 transition hover:bg-muted hover:text-foreground"
-            >
-              <X className="size-3.5" />
-            </button>
-          </div>
-        </div>
-      )}
 
       <div className="sticky bottom-0 z-30 border-t border-border bg-background/95 p-3 backdrop-blur lg:hidden">
         <CTA href="#ofertas" className="py-3.5 text-sm">
