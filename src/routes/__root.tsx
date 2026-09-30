@@ -77,17 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 10" },
+      { title: "35 Livros de Colorir Cristãos — a partir de R$ 10" },
       {
         name: "description",
         content:
-          "Kit digital infantil cristão: + de 30 livrinhos em PDF para imprimir e colorir. Acesso no e-mail a partir de R$ 10.",
+          "Kit digital infantil cristão: 35 livrinhos em PDF para imprimir e colorir. Acesso no e-mail a partir de R$ 10.",
       },
-      { property: "og:title", content: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 10" },
+      { property: "og:title", content: "35 Livros de Colorir Cristãos — a partir de R$ 10" },
       {
         property: "og:description",
         content:
-          "Material digital cristão para imprimir: + de 30 livrinhos, acesso vitalício e garantia de 7 dias.",
+          "Material digital cristão para imprimir: 35 livrinhos, acesso vitalício e garantia de 7 dias.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
