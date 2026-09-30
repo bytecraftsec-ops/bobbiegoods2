@@ -332,18 +332,21 @@ function Index() {
       <section className="px-4 py-6 sm:py-8">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-xl font-extrabold sm:text-2xl">Para usar onde você precisar</h2>
-          <p className="mt-1.5 text-center text-xs text-muted-foreground sm:text-sm">
+          <p className="mt-1.5 text-center text-xs text-foreground/70 sm:text-sm">
             Um material, várias formas de ensinar a Palavra
           </p>
 
           <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-6 sm:gap-3 lg:grid-cols-4">
             {beneficios.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="h-full rounded-xl border border-border bg-card p-3.5 text-center shadow-soft sm:p-4">
+              <div
+                key={title}
+                className="h-full rounded-xl border border-border bg-card p-3.5 text-center shadow-md sm:p-4"
+              >
                 <div className="mx-auto flex size-9 items-center justify-center rounded-full bg-cta/10 sm:size-10">
                   <Icon className="size-4 text-cta sm:size-5" />
                 </div>
                 <h3 className="mt-2 text-sm font-extrabold sm:text-[15px]">{title}</h3>
-                <p className="mt-1 text-xs leading-snug text-muted-foreground sm:text-sm">{text}</p>
+                <p className="mt-1 text-xs leading-snug text-foreground/65 sm:text-sm">{text}</p>
               </div>
             ))}
           </div>
