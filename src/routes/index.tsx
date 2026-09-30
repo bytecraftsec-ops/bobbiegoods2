@@ -90,17 +90,16 @@ const beneficios = [
 ];
 
 const livros = [
-  { img: "/livros-opt/livro-01.jpg", title: "Página para colorir" },
-  { img: "/livros-opt/livro-02.jpg", title: "Exemplo de atividade" },
-  { img: "/livros-opt/livro-03.jpg", title: "Página do material" },
-  { img: "/livros-opt/livro-04.jpg", title: "Página para colorir" },
-  { img: "/livros-opt/livro-05.jpg", title: "Exemplo de atividade" },
-  { img: "/livros-opt/livro-06.jpg", title: "Página do material" },
-  { img: "/livros-opt/livro-07.jpg", title: "Página para colorir" },
-  { img: "/livros-opt/livro-08.jpg", title: "Exemplo de atividade" },
-  { img: "/livros-opt/livro-09.jpg", title: "Página do material" },
-  { img: "/livros-opt/livro-16.jpg", title: "Página para colorir" },
-  { img: "/livros-opt/livro-17.jpg", title: "Capa do material" },
+  { img: "/livros-opt/01.png", title: "Página para colorir" },
+  { img: "/livros-opt/17.png", title: "História bíblica" },
+  { img: "/livros-opt/26.png", title: "Atividade cristã" },
+  { img: "/livros-opt/27.png", title: "Página do material" },
+  { img: "/livros-opt/35.png", title: "Versículo ilustrado" },
+  { img: "/livros-opt/Screenshot_9.png", title: "Página para colorir" },
+  { img: "/livros-opt/Screenshot_10.png", title: "História bíblica" },
+  { img: "/livros-opt/Screenshot_11.png", title: "Atividade cristã" },
+  { img: "/livros-opt/Screenshot_12.png", title: "Página do material" },
+  { img: "/livros-opt/Screenshot_13.png", title: "Desenho para colorir" },
 ];
 
 const provasReais = [
@@ -114,7 +113,7 @@ const provasReais = [
 
 const depoimentos = Array.from({ length: 10 }, (_, index) => ({
   src: `/depoimentos/prompt${index + 1}.png`,
-  alt: `Exemplo de mensagem ${index + 1}`,
+  alt: `Depoimento de cliente ${index + 1}`,
 }));
 
 const faq = [
@@ -346,7 +345,7 @@ function Index() {
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-cta/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-cta-dark">
-              <Heart className="size-3.5 fill-cta text-cta" /> Na prática
+              <Heart className="size-3.5 fill-cta text-cta" /> Exemplos de uso
             </span>
             <h2 className="mt-3 text-2xl font-extrabold sm:text-3xl">Crianças usando o material</h2>
             <p className="mt-2 text-sm leading-6 text-muted-foreground sm:text-base">
@@ -373,19 +372,19 @@ function Index() {
         <div className="relative mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-cta/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-cta-dark">
-              <Star className="size-3.5 fill-gold text-gold" /> Mensagens
+              <Star className="size-3.5 fill-gold text-gold" /> Depoimentos
             </span>
             <h2 className="mt-3 text-2xl font-extrabold sm:text-3xl">
-              Exemplos de mensagens sobre o material
+              Clientes satisfeitos
             </h2>
             <p className="mt-2 text-sm leading-6 text-muted-foreground sm:text-base">
-              Exemplos de mensagens sobre o material.
+              Veja o que estão falando sobre o material.
             </p>
           </div>
 
           <div className="mt-7 sm:mt-8">
             <Carousel
-              label="Exemplos de mensagens"
+              label="Depoimentos de clientes"
               itemClassName="w-[94%] sm:w-[70%] lg:w-[52%]"
             >
               {depoimentos.map((d) => (
