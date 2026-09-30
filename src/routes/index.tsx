@@ -20,7 +20,6 @@ import {
   Infinity,
 } from "lucide-react";
 import { Carousel } from "@/components/Carousel";
-import { Reveal } from "@/components/Reveal";
 
 const CHECKOUT_BASICO = "https://pay.cakto.com.br/n2t4fub";
 const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/8amwnbd";
@@ -254,7 +253,7 @@ function Index() {
         </div>
       </div>
 
-      <section className="px-4 py-10 sm:py-14">
+      <section className="px-4 py-8 sm:py-10">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center text-2xl font-extrabold sm:text-3xl">O que você recebe</h2>
           <p className="mt-2 text-center text-sm text-muted-foreground sm:text-base">
@@ -295,7 +294,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-secondary px-4 py-10 sm:py-14">
+      <section className="bg-secondary px-4 py-8 sm:py-10">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-2xl font-extrabold sm:text-3xl">Páginas reais do material</h2>
           <p className="mt-2 text-center text-sm text-muted-foreground sm:text-base">
@@ -326,7 +325,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="px-4 py-7 sm:py-10">
+      <section className="px-4 py-6 sm:py-8">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-xl font-extrabold sm:text-2xl">Para usar onde você precisar</h2>
           <p className="mt-1.5 text-center text-xs text-muted-foreground sm:text-sm">
@@ -334,22 +333,20 @@ function Index() {
           </p>
 
           <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-6 sm:gap-3 lg:grid-cols-4">
-            {beneficios.map(({ icon: Icon, title, text }, i) => (
-              <Reveal key={title} delay={i * 60}>
-                <div className="h-full rounded-xl border border-border bg-card p-3.5 text-center shadow-soft sm:p-4">
-                  <div className="mx-auto flex size-9 items-center justify-center rounded-full bg-cta/10 sm:size-10">
-                    <Icon className="size-4 text-cta sm:size-5" />
-                  </div>
-                  <h3 className="mt-2 text-sm font-extrabold sm:text-[15px]">{title}</h3>
-                  <p className="mt-1 text-xs leading-snug text-muted-foreground sm:text-sm">{text}</p>
+            {beneficios.map(({ icon: Icon, title, text }) => (
+              <div key={title} className="h-full rounded-xl border border-border bg-card p-3.5 text-center shadow-soft sm:p-4">
+                <div className="mx-auto flex size-9 items-center justify-center rounded-full bg-cta/10 sm:size-10">
+                  <Icon className="size-4 text-cta sm:size-5" />
                 </div>
-              </Reveal>
+                <h3 className="mt-2 text-sm font-extrabold sm:text-[15px]">{title}</h3>
+                <p className="mt-1 text-xs leading-snug text-muted-foreground sm:text-sm">{text}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-card px-4 py-10 sm:py-14">
+      <section className="bg-card px-4 py-8 sm:py-10">
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-cta/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-cta-dark">
@@ -376,8 +373,8 @@ function Index() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#fffaf3] px-4 py-10 sm:py-14">
-        <Reveal className="relative mx-auto max-w-6xl">
+      <section className="relative overflow-hidden bg-[#fffaf3] px-4 py-8 sm:py-10">
+        <div className="relative mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-cta/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-cta-dark">
               <Star className="size-3.5 fill-gold text-gold" /> Relatos reais
@@ -409,10 +406,10 @@ function Index() {
           <p className="mt-4 text-center text-xs font-bold text-muted-foreground">
             Arraste para o lado no celular para ver mais.
           </p>
-        </Reveal>
+        </div>
       </section>
 
-      <section id="ofertas" className="scroll-mt-16 bg-secondary px-4 py-10 sm:py-14">
+      <section id="ofertas" className="scroll-mt-16 bg-secondary px-4 py-8 sm:py-10">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center text-2xl font-extrabold sm:text-3xl">Escolha seu pacote</h2>
           <p className="mt-2 text-center text-sm text-muted-foreground">
@@ -420,7 +417,6 @@ function Index() {
           </p>
 
           <div className="mt-7 grid items-start gap-5 sm:mt-8 lg:grid-cols-2 lg:gap-6">
-            <Reveal>
               <div className="rounded-3xl border border-border bg-card p-5 shadow-soft sm:p-7">
                 <h3 className="flex items-center justify-center gap-2 text-lg font-extrabold sm:text-xl">
                   <Star className="size-5 fill-gold text-gold sm:size-6" /> Pacote Básico
@@ -452,9 +448,7 @@ function Index() {
                   </p>
                 </div>
               </div>
-            </Reveal>
 
-            <Reveal delay={100}>
               <div className="relative rounded-3xl border-2 border-gold bg-card p-5 pt-9 shadow-card ring-4 ring-gold/20 sm:p-7 sm:pt-10">
                 <span className="absolute -top-3.5 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-gold px-3 py-1.5 text-xs font-extrabold uppercase text-gold-foreground shadow-soft">
                   <Crown className="size-3.5" /> Mais completo
@@ -502,7 +496,6 @@ function Index() {
                   </p>
                 </div>
               </div>
-            </Reveal>
           </div>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -522,7 +515,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="px-4 py-10 sm:py-14">
+      <section className="px-4 py-8 sm:py-10">
         <div className="mx-auto max-w-2xl">
           <h2 className="text-center text-2xl font-extrabold sm:text-3xl">Perguntas frequentes</h2>
           <div className="mt-6 space-y-2.5 sm:mt-8 sm:space-y-3">
@@ -561,7 +554,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-gradient-brand px-4 py-10 text-center text-brand-foreground sm:py-14">
+      <section className="bg-gradient-brand px-4 py-8 text-center text-brand-foreground sm:py-10">
         <div className="mx-auto max-w-2xl">
           <BookOpen className="mx-auto size-10 text-gold sm:size-12" />
           <h2 className="mt-4 text-2xl font-extrabold sm:text-3xl lg:text-4xl">
