@@ -28,17 +28,17 @@ const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/8amwnbd";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 10" },
+      { title: "35 Livros de Colorir Cristãos — a partir de R$ 10" },
       {
         name: "description",
         content:
-          "Kit digital infantil cristão: + de 30 livrinhos em PDF para imprimir e colorir. Histórias bíblicas, versículos e atividades. Acesso no e-mail a partir de R$ 10.",
+          "Kit digital infantil cristão: 35 livrinhos em PDF para imprimir e colorir. Histórias bíblicas, versículos e atividades. Acesso no e-mail a partir de R$ 10.",
       },
-      { property: "og:title", content: "+ de 30 Livros de Colorir Cristãos — a partir de R$ 10" },
+      { property: "og:title", content: "35 Livros de Colorir Cristãos — a partir de R$ 10" },
       {
         property: "og:description",
         content:
-          "Material digital cristão para imprimir: + de 30 livrinhos, acesso vitalício e garantia de 7 dias.",
+          "Material digital cristão para imprimir: 35 livrinhos, acesso vitalício e garantia de 7 dias.",
       },
     ],
   }),
@@ -188,7 +188,7 @@ function Index() {
             </span>
 
             <h1 className="mt-3.5 text-[1.7rem] font-extrabold leading-[1.12] sm:mt-5 sm:text-5xl lg:text-6xl">
-              <span className="text-gold">+ de 30 livrinhos cristãos</span>
+              <span className="text-gold">35 livrinhos cristãos</span>
               <br />
               para imprimir e colorir
             </h1>
@@ -208,6 +208,9 @@ function Index() {
                 A partir de R$ 10,00
               </span>
             </div>
+            <p className="mx-auto mt-2.5 max-w-md text-center text-xs font-bold text-brand-foreground/75 lg:mx-0 lg:text-left sm:text-sm">
+              35 livros por R$ 10 · menos de R$ 0,30 cada
+            </p>
 
             <div className="mx-auto mt-5 max-w-md space-y-2.5 lg:mx-0 sm:mt-6 sm:space-y-3">
               <CTA href={CHECKOUT_BASICO}>Quero meu kit — R$ 10,00</CTA>
@@ -391,7 +394,6 @@ function Index() {
             <Carousel
               label="Depoimentos reais de clientes"
               itemClassName="w-[94%] sm:w-[70%] lg:w-[52%]"
-              hideArrows
             >
               {depoimentos.map((d) => (
                 <figure
@@ -432,7 +434,7 @@ function Index() {
                 </p>
                 <ul className="mt-5 space-y-2.5">
                   {[
-                    "+ de 30 livrinhos de colorir em PDF",
+                    "35 livrinhos de colorir em PDF",
                     "Temas bíblicos variados",
                     "Acesso vitalício",
                     "Impressão ilimitada",
@@ -566,7 +568,7 @@ function Index() {
             Comece hoje a colorir a fé das suas crianças
           </h2>
           <p className="mt-3 text-sm text-brand-foreground/90 sm:text-base">
-            + de 30 livrinhos digitais em PDF. Acesso no e-mail e garantia de 7 dias.
+            35 livrinhos digitais em PDF. Acesso no e-mail e garantia de 7 dias.
           </p>
           <div className="mx-auto mt-6 max-w-sm space-y-3 sm:mt-8">
             <CTA href={CHECKOUT_BASICO}>Quero o Básico — R$ 10</CTA>
