@@ -5,10 +5,12 @@ export function Carousel({
   children,
   itemClassName = "w-[82%] sm:w-[48%] lg:w-[32%]",
   label,
+  hideArrows = false,
 }: {
   children: ReactNode[];
   itemClassName?: string;
   label: string;
+  hideArrows?: boolean;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -32,22 +34,26 @@ export function Carousel({
         ))}
       </div>
 
-      <button
-        type="button"
-        aria-label="Anterior"
-        onClick={() => scrollBy(-1)}
-        className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/90 p-2 text-foreground shadow-soft backdrop-blur transition hover:bg-background md:-left-4"
-      >
-        <ChevronLeft className="size-5" />
-      </button>
-      <button
-        type="button"
-        aria-label="Próximo"
-        onClick={() => scrollBy(1)}
-        className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/90 p-2 text-foreground shadow-soft backdrop-blur transition hover:bg-background md:-right-4"
-      >
-        <ChevronRight className="size-5" />
-      </button>
+      {!hideArrows && (
+        <>
+          <button
+            type="button"
+            aria-label="Anterior"
+            onClick={() => scrollBy(-1)}
+            className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/90 p-2 text-foreground shadow-soft backdrop-blur transition hover:bg-background md:-left-4"
+          >
+            <ChevronLeft className="size-5" />
+          </button>
+          <button
+            type="button"
+            aria-label="Próximo"
+            onClick={() => scrollBy(1)}
+            className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/90 p-2 text-foreground shadow-soft backdrop-blur transition hover:bg-background md:-right-4"
+          >
+            <ChevronRight className="size-5" />
+          </button>
+        </>
+      )}
     </div>
   );
 }
