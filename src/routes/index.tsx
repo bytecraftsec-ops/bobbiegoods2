@@ -441,15 +441,15 @@ function Index() {
               </div>
             </div>
 
-            <div className="relative rounded-3xl border-2 border-cta bg-card p-5 shadow-card sm:p-7">
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-cta px-3 py-1 text-xs font-extrabold uppercase text-cta-foreground">
-                Mais completo
+            <div className="relative scale-[1.02] rounded-3xl border-2 border-cta bg-gradient-to-b from-cta/5 to-card p-5 shadow-card ring-2 ring-cta/30 sm:p-7 lg:scale-105">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-cta to-amber-500 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wide text-white shadow-md">
+                ★ Mais vendido
               </span>
               <h3 className="flex items-center justify-center gap-2 text-lg font-extrabold sm:text-xl">
                 <Crown className="size-5 text-gold sm:size-6" /> Pacote Premium
               </h3>
               <p className="mt-3 text-center text-xs font-extrabold uppercase tracking-wide text-cta-dark sm:mt-4">
-                Mais completo que o Básico
+                Escolha de quem quer o máximo
               </p>
               <p className="mt-1 text-center text-4xl font-extrabold text-cta sm:text-5xl">R$ 19,90</p>
               <p className="mt-1 text-center text-sm text-muted-foreground">
