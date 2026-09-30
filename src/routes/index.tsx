@@ -103,16 +103,16 @@ const livros = [
 ];
 
 const provasReais = [
-  { src: "/provas-opt/prova-1.jpg", alt: "Exemplo de uso do material" },
-  { src: "/provas-opt/prova-2.jpg", alt: "Exemplo de atividade para colorir" },
-  { src: "/provas-opt/prova-3.jpg", alt: "Exemplo de uso do material" },
-  { src: "/provas-opt/prova-4.jpg", alt: "Exemplo de atividade para colorir" },
-  { src: "/provas-opt/prova-5.jpg", alt: "Exemplo de uso do material" },
-  { src: "/provas-opt/prova-6.jpg", alt: "Exemplo de material impresso" },
+  { src: "/provas-opt/prova-1.webp", alt: "Exemplo de uso do material" },
+  { src: "/provas-opt/prova-2.webp", alt: "Exemplo de atividade para colorir" },
+  { src: "/provas-opt/prova-3.webp", alt: "Exemplo de uso do material" },
+  { src: "/provas-opt/prova-4.webp", alt: "Exemplo de atividade para colorir" },
+  { src: "/provas-opt/prova-5.webp", alt: "Exemplo de material impresso" },
+  { src: "/provas-opt/prova-6.webp", alt: "Exemplo de material impresso" },
 ];
 
 const depoimentos = Array.from({ length: 10 }, (_, index) => ({
-  src: `/depoimentos/prompt${index + 1}.png`,
+  src: `/depoimentos/prompt${index + 1}.webp`,
   alt: `Depoimento de cliente ${index + 1}`,
 }));
 
@@ -228,7 +228,7 @@ function Index() {
 
           <div className="order-1 lg:order-2">
             <img
-              src="/hero-colorir.jpg"
+              src="/hero-colorir.webp"
               alt="Criança colorindo livros cristãos com giz de cera"
               width={720}
               height={899}
