@@ -488,7 +488,10 @@ function Index() {
                     <Gift className="size-5 shrink-0 text-amber-500" />
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-extrabold leading-snug sm:text-[15px]">{b.title}</p>
-                      <p className="text-xs font-bold text-red-500 line-through sm:text-sm">{b.price}</p>
+                      <p className="text-xs font-bold sm:text-sm">
+                        <span className="text-red-500 line-through">{b.price}</span>
+                        <span className="ml-1.5 font-extrabold uppercase text-emerald-600">Grátis</span>
+                      </p>
                     </div>
                   </li>
                 ))}
@@ -522,7 +525,7 @@ function Index() {
                   />
                 </button>
                 {open === i && (
-                  <p className="border-t border-border px-4 py-3 text-sm leading-6 text-muted-foreground sm:px-5">
+                  <p className="border-t border-border px-4 py-3 text-sm leading-6 text-foreground/80 sm:px-5">
                     {item.a}
                   </p>
                 )}
@@ -532,13 +535,13 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-gradient-brand px-4 py-10 text-brand-foreground sm:py-12">
+      <section className="bg-gradient-brand px-4 py-12 text-brand-foreground sm:py-16">
         <div className="mx-auto max-w-xl text-center">
           <h2 className="text-2xl font-extrabold sm:text-3xl">Pronto para começar?</h2>
           <p className="mt-2 text-sm text-brand-foreground/85 sm:text-base">
             Acesso imediato no e-mail após o PIX ou cartão · Garantia de 7 dias
           </p>
-          <div className="mx-auto mt-6 max-w-sm space-y-3">
+          <div className="mx-auto mt-8 max-w-sm space-y-3 pb-2">
             <CTA href={CHECKOUT_PREMIUM}>Quero o Premium — R$ 19,90</CTA>
             <a
               href={CHECKOUT_BASICO}
