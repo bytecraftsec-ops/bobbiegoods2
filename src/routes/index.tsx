@@ -207,16 +207,19 @@ function Index() {
             </p>
 
             <div className="mx-auto mt-5 max-w-md space-y-2.5 lg:mx-0 sm:mt-6 sm:space-y-3">
-              <CTA href={CHECKOUT_BASICO}>Quero meu kit — R$ 10,00</CTA>
+              <CTA href={CHECKOUT_PREMIUM}>Quero o Premium — R$ 19,90</CTA>
               <a
-                href={CHECKOUT_PREMIUM}
-                className="block px-4 py-2 text-center text-xs font-bold tracking-wide text-brand-foreground/85 underline-offset-2 transition hover:text-brand-foreground hover:underline sm:text-sm"
+                href={CHECKOUT_BASICO}
+                className="block rounded-full border-2 border-white/40 bg-white/10 px-6 py-3 text-center text-sm font-extrabold tracking-wide text-brand-foreground backdrop-blur transition hover:bg-white/20 sm:text-base"
               >
-                Ver Premium — R$ 19,90
+                Ou leve o Básico por R$ 10,00
               </a>
+              <p className="text-center text-xs font-bold text-brand-foreground/90 lg:text-left sm:text-sm">
+                Acesso imediato no e-mail após o PIX ou cartão
+              </p>
               <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-brand-foreground/80 lg:justify-start">
                 <span className="inline-flex items-center gap-1">
-                  <Zap className="size-3.5" /> Acesso após o pagamento
+                  <Zap className="size-3.5" /> Liberação na hora
                 </span>
                 <span className="opacity-50">·</span>
                 <span className="inline-flex items-center gap-1">
@@ -283,8 +286,11 @@ function Index() {
             </div>
           </div>
 
-          <div className="mx-auto mt-7 max-w-sm sm:mt-8">
+          <div className="mx-auto mt-7 max-w-sm space-y-2 sm:mt-8">
             <CTA href={CHECKOUT_BASICO}>Quero meu kit — R$ 10</CTA>
+            <p className="text-center text-xs font-bold text-muted-foreground">
+              Acesso imediato no e-mail após o PIX ou cartão
+            </p>
           </div>
         </div>
       </section>
@@ -314,8 +320,11 @@ function Index() {
             </Carousel>
           </div>
 
-          <div className="mx-auto mt-7 max-w-sm sm:mt-8">
+          <div className="mx-auto mt-7 max-w-sm space-y-2 sm:mt-8">
             <CTA href={CHECKOUT_BASICO}>Garantir meu kit</CTA>
+            <p className="text-center text-xs font-bold text-muted-foreground">
+              Acesso imediato no e-mail após o PIX ou cartão
+            </p>
           </div>
         </div>
       </section>
@@ -436,8 +445,11 @@ function Index() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6">
+              <div className="mt-6 space-y-2">
                 <CTA href={CHECKOUT_BASICO}>Quero o Básico — R$ 10</CTA>
+                <p className="text-center text-xs font-bold text-muted-foreground">
+                  Acesso imediato no e-mail após o PIX ou cartão
+                </p>
               </div>
             </div>
 
@@ -482,8 +494,11 @@ function Index() {
                 ))}
               </ul>
 
-              <div className="mt-6">
+              <div className="mt-6 space-y-2">
                 <CTA href={CHECKOUT_PREMIUM}>Quero o Premium — R$ 19,90</CTA>
+                <p className="text-center text-xs font-bold text-muted-foreground">
+                  Acesso imediato no e-mail após o PIX ou cartão
+                </p>
               </div>
             </div>
           </div>
@@ -521,26 +536,26 @@ function Index() {
         <div className="mx-auto max-w-xl text-center">
           <h2 className="text-2xl font-extrabold sm:text-3xl">Pronto para começar?</h2>
           <p className="mt-2 text-sm text-brand-foreground/85 sm:text-base">
-            Acesso no e-mail após o pagamento · Garantia de 7 dias
+            Acesso imediato no e-mail após o PIX ou cartão · Garantia de 7 dias
           </p>
           <div className="mx-auto mt-6 max-w-sm space-y-3">
-            <CTA href={CHECKOUT_BASICO}>Quero meu kit — R$ 10</CTA>
+            <CTA href={CHECKOUT_PREMIUM}>Quero o Premium — R$ 19,90</CTA>
             <a
-              href={CHECKOUT_PREMIUM}
-              className="block text-center text-sm font-bold underline-offset-2 hover:underline"
+              href={CHECKOUT_BASICO}
+              className="block rounded-full border-2 border-white/40 bg-white/10 px-6 py-3 text-center text-sm font-extrabold tracking-wide text-brand-foreground backdrop-blur transition hover:bg-white/20"
             >
-              Quero o Premium — R$ 19,90
+              Ou o Básico por R$ 10,00
             </a>
           </div>
         </div>
       </section>
 
       <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-white/95 p-3 backdrop-blur lg:hidden">
-        <CTA href={CHECKOUT_BASICO} className="py-3.5 text-sm">
-          Quero por R$ 10 — pagar no Pix
+        <CTA href={CHECKOUT_PREMIUM} className="py-3.5 text-sm">
+          Quero o Premium — R$ 19,90
         </CTA>
         <p className="mt-1 text-center text-[10px] font-bold text-muted-foreground sm:text-[11px]">
-          Acesso no e-mail · 7 dias de garantia
+          Acesso imediato no e-mail · 7 dias de garantia
         </p>
       </div>
     </div>
