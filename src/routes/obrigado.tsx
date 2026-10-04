@@ -1,16 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 import {
   Check,
   Crown,
-  Gift,
   Mail,
   ShieldCheck,
   Sparkles,
   Star,
   Zap,
 } from "lucide-react";
-
-const CHECKOUT_PREMIUM = "https://pay.kiwify.com.br/NedckcM";
 
 export const Route = createFileRoute("/obrigado")({
   head: () => ({
@@ -36,6 +34,22 @@ const premiumExtras = [
 ];
 
 function ObrigadoPage() {
+  useEffect(() => {
+    const existing = document.querySelector(
+      'script[src="https://snippets.kiwify.com/upsell-v2/upsell.min.js"]',
+    );
+    if (existing) return;
+
+    const script = document.createElement("script");
+    script.src = "https://snippets.kiwify.com/upsell-v2/upsell.min.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="border-b border-border bg-white px-4 py-2.5 text-center text-xs font-bold text-foreground sm:text-sm">
@@ -101,13 +115,6 @@ function ObrigadoPage() {
               leve o material mais completo + bônus — ideal para célula, escola dominical e uso em casa.
             </p>
 
-            <p className="mt-4 text-center">
-              <span className="text-4xl font-extrabold text-cta sm:text-5xl">R$ 19,90</span>
-              <span className="mt-1 block text-xs font-bold text-muted-foreground">
-                Pagamento único · acesso vitalício
-              </span>
-            </p>
-
             <ul className="mt-5 space-y-2.5">
               {premiumExtras.map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-sm font-bold">
@@ -119,21 +126,41 @@ function ObrigadoPage() {
               ))}
             </ul>
 
-            <a
-              href={CHECKOUT_PREMIUM}
-              className="shine-overlay animate-pulse-glow mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-cta px-6 py-4 text-center text-base font-extrabold uppercase tracking-wide text-cta-foreground transition-transform hover:scale-[1.03] active:scale-[0.99] sm:text-lg"
+            {/* Upsell nativo Kiwify */}
+            <div
+              id="kiwify-upsell-Mp9pLbx"
+              data-upsell-url=""
+              data-downsell-url=""
+              className="mt-6 space-y-3"
+              style={
+                {
+                  "--kiwify-upsell-accept-bg": "#27AF60",
+                  "--kiwify-upsell-accept-color": "#FFFFFF",
+                } as React.CSSProperties
+              }
             >
-              <Gift className="size-5" />
-              Quero o Premium agora
-            </a>
+              <button
+                id="kiwify-upsell-trigger-Mp9pLbx"
+                type="button"
+                className="shine-overlay animate-pulse-glow inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#27AF60] px-6 py-4 text-center text-base font-extrabold uppercase tracking-wide text-white transition-transform hover:scale-[1.02] active:scale-[0.99] sm:text-lg"
+              >
+                Sim, eu aceito essa oferta especial!
+              </button>
+              <div
+                id="kiwify-upsell-cancel-trigger-Mp9pLbx"
+                className="cursor-pointer text-center text-sm font-bold text-muted-foreground underline-offset-2 hover:underline"
+              >
+                Não, eu gostaria de recusar essa oferta
+              </div>
+            </div>
 
             <p className="mt-3 text-center text-xs font-bold text-muted-foreground">
-              Acesso imediato no e-mail após o PIX ou cartão
+              Pagamento seguro via Kiwify · acesso no e-mail
             </p>
           </div>
 
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            Não quero o Premium agora —{" "}
+            Preferir sair —{" "}
             <Link to="/" className="font-extrabold text-cta underline-offset-2 hover:underline">
               voltar ao início
             </Link>
